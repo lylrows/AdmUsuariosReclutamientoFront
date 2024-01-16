@@ -1,0 +1,146 @@
+<div class="content">
+  <div class="col-lg-12 col-sm-12 col-md-12 d-flex justify-content-center mb-5">
+    <div class="title">
+      <i style="font-size:25px" class="pi pi-cog"></i> Configuraciones
+    </div>
+  </div>
+  <div class="col-lg-12 col-sm-12 col-md-12 d-flex justify-content-center">
+    <div class="row card-config">
+      <div class="col-lg-12 col-sm-12 col-md-12 text-account">
+       <i class="pi pi-user"></i> Mi Cuenta 
+      </div>
+      <div class="col-lg-12 col-sm-12 col-md-12 text-change mt-3">
+        Cambiar Contraseña
+      </div>
+      <div class="col-lg-12 col-sm-12 col-md-12 text-descripcion">
+        Para modificar tu contraseña debes completar los campos obligatorios 
+      </div>
+      <div class="col-lg-12 col-sm-12 col-md-12">
+        <form [formGroup]="formPassword" (ngSubmit)="submitPassword()">
+          <div class="row">
+              <div class="col-lg-6 col-sm-12 col-md-12 d-flex flex-column mt-3">
+                  <label for="">Contraseña actual <span class="required">*</span></label>
+                  <input class="mt-3" type="password" name="" id="" formControlName="passwordActual">
+                  <small
+                  *ngIf="
+                    formPassword.controls['passwordActual'].hasError(
+                      'required'
+                    ) && formPassword.controls['passwordActual'].touched
+                  "
+                  style="color: red;"
+                  >Ingrese una contraseña válida</small
+                >
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12">
+
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12 d-flex flex-column mt-3">
+                <label for="">Nueva contraseña <span class="required">*</span></label>
+                <input class="mt-3" type="password" name="" id="" formControlName="passwordWithoutEncryption">
+                <small
+                *ngIf="
+                formPassword.controls['passwordWithoutEncryption'].hasError('required') &&
+                formPassword.controls['passwordWithoutEncryption'].touched
+                "
+                style="color: red;" class="form-error-msg"
+              >
+                Se requiere la contraseña
+              </small>
+              <small 
+              *ngIf="formPassword.controls['passwordWithoutEncryption'].hasError('pattern') && formPassword.controls['passwordWithoutEncryption'].touched" 
+              class="form-error-msg" style="color: red;"> La contraseña debe tener al menos letras minúsculas y mayúsculas, un número y un símbolo</small>
+              
+              <small 
+              *ngIf="formPassword.controls['passwordWithoutEncryption'].hasError('minlength') && formPassword.controls['passwordWithoutEncryption'].touched" 
+              class="form-error-msg" style="color: red;"> La contraseña debe contener un mínimo de  {{formPassword.controls['passwordWithoutEncryption'].errors.minlength.requiredLength}} caracteres </small>
+              
+              <small 
+              *ngIf="formPassword.controls['passwordWithoutEncryption'].hasError('maxlength') && formPassword.controls['passwordWithoutEncryption'].touched" 
+              class="form-error-msg" style="color: red;"> La contraseña no puede contener mas de  {{formPassword.controls['passwordWithoutEncryption'].errors.maxlength.requiredLength}} caracteres </small>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12 d-flex flex-column mt-3">
+                <label for="">Repite tu nueva contraseña</label>
+                <input class="mt-3" type="password" name="" id="" formControlName="passwordConfirm">
+                <small
+                *ngIf="
+                  formPassword.controls['passwordConfirm'].hasError(
+                    'required'
+                  ) && formPassword.controls['passwordConfirm'].touched
+                "
+                style="color: red;"
+                >Se requiere confirmación de contraseña.</small
+              >
+              <small
+                *ngIf="
+                formPassword.controls['passwordConfirm'].hasError(
+                    'equalTo'
+                  )
+                "
+                style="color: red;"
+                >Contraseñas no coinciden.</small>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12 d-flex flex-column mt-3">
+
+              </div>
+              <div class="col-lg-6 col-sm-12 col-md-12 mt-3">
+                <div class="d-grid gap-2 d-flex justify-content-end">
+                  <button (click)="clearFormPassword()" type="button"  style="cursor: pointer;" class="btn-clear">Limpiar</button>
+                  <button [disabled]="formPassword.invalid" type="submit" class="btn-change"  style="cursor: pointer;">Cambiar Contraseña</button>
+                </div>
+              </div>
+          </div>
+        </form>
+      </div>
+      <hr class="mt-4">
+      <div class="col-lg-12 col-sm-12 col-md-12 text-change mt-5">
+        Eliminar Cuenta
+      </div>
+      <div class="col-lg-12 col-sm-12 col-md-12 text-descripcion">
+        Eliminando tu cuenta y tu CV de Grupo Fe no podrás postularte a más ofertas laborales ni revisar tus postulaciones.
+      </div>
+      <div class="col-lg-12 col-sm-12 col-md-12">
+        <form [formGroup]="formAccount" (ngSubmit)="submitAccount()">
+          <div class="row">
+            <div class="col-lg-6 col-sm-12 col-md-12 d-flex flex-column mt-3">
+                <label for="">Contraseña <span class="required">*</span></label>
+                <input class="mt-3" type="password" name="" id="" formControlName="passwordActual">
+                <small
+                *ngIf="
+                formAccount.controls['passwordActual'].hasError(
+                    'required'
+                  ) && formAccount.controls['passwordActual'].touched
+                "
+                style="color: red;"
+                >Ingrese una contraseña válida</small>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12">
+
+            </div>
+            <div class="col-lg-12 col-sm-12 col-md-12 d-flex flex-column mt-3">
+              <label for="">¿Por qué quieres eliminar tu cuenta? <span class="required">*</span></label>
+              <textarea class="mt-3" name="" id="" cols="30" rows="10" formControlName="motivo"></textarea>
+              <small
+              *ngIf="
+              formAccount.controls['motivo'].hasError(
+                  'required'
+                ) && formAccount.controls['motivo'].touched
+              "
+              style="color: red;"
+              >Es un campo obligatorio</small>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12 d-flex flex-column mt-3">
+
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12 mt-3">
+              <div class="d-grid gap-2 d-flex justify-content-end">
+                <button (click)="clearFormAccount()" type="button"  style="cursor: pointer;" class="btn-clear">Limpiar</button>
+                <button [disabled]="formAccount.invalid" type="submit"  style="cursor: pointer;" class="btn-change">Eliminar Cuenta</button>
+              </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>

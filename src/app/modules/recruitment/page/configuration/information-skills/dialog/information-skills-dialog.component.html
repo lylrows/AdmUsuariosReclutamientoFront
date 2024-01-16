@@ -1,0 +1,55 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left title">{{title}}</h4>
+    <span class="indicador-campos indicator">*Campos obligatorios</span>
+    <button type="button" class="btn-close close pull-right btnhabi" aria-label="Close" style="cursor: pointer;" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="col-lg-12 col-md-12 col-sm-12 text-1">
+        Tienes 48 conocimientos y habilidades para agregar
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 text-2">
+        Escribe una palabra simple o compuesta. Ej: Microsoft power point
+    </div>
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="col-lg-12 col-md-12 col-sm-12 mt-4">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <label for="inputEmail4" class="form-label">Conocimiento o habilidad<span class="required">*</span></label>
+                    <ng-autocomplete 
+                    formControlName="skills"
+                    [data]="data"
+                    [searchKeyword]="keyword"
+                    (selected)='selectEvent($event)'
+                    (inputChanged)='onChangeSearch($event)'
+                    (inputFocused)='onFocused($event)'
+                    [itemTemplate]="itemTemplate"
+                    [notFoundTemplate]="notFoundTemplate">                                 
+                  </ng-autocomplete>
+                  
+                  <ng-template #itemTemplate let-item>
+                  <a [innerHTML]="item.descriptionSkill"></a>
+                  </ng-template>
+                  
+                  <ng-template #notFoundTemplate let-notFound>
+                  <div [innerHTML]="notFound"></div>
+                  </ng-template>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 mt-2 d-flex align-content-center flex-wrap">
+             <span *ngFor="let item of lstSkills; let i = index" class="tag">
+                <div class="tag-custom-text">
+                   {{item.descriptionSkill}}
+                </div>
+                <button (click)="remove(i)" style="cursor: pointer;" class="icon"><img src="../../../../../../../assets/icons/close.png" alt=""></button>
+             </span>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 mt-4 d-flex justify-content-center divButtons">
+            <button type="submit" class="button-grabar" [disabled]="form.invalid" style="cursor: pointer;">Guardar</button>
+            <button type="button" class="mx-4 button-cancel" (click)="bsModalRef.hide()" style="cursor: pointer;">{{closeBtnName}}</button>
+        </div>
+    </form>
+
+</div>

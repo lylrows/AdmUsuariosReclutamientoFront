@@ -1,0 +1,65 @@
+.contenedor-skills {
+    background: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #12369e;
+}
+
+.button-agregar {
+    width: 145px;
+    height: 60px;
+    background: #ffedc8;
+    border-radius: 6px;
+    border: none;
+    color: #12369e;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+.tag {
+    border-radius: 4px;
+    padding: 8px 8px;
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    color: #3F3F3F;
+    background-color: #ECECEC;
+    overflow: auto;
+    line-height: 32px;
+    margin: 12px 12px 0px 0px;
+    font-weight: 600;
+}
+
+.tag .tag-custom-text {
+    color: #3F3F3F;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.tag .icon {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;
+    color: rgb(255, 255, 255);
+    margin-left: 12px;
+    padding: 0px;
+    border: medium none;
+}
+
+@media screen and (max-width:600px) {
+    .tag{
+        display: block !important;
+    }
+}

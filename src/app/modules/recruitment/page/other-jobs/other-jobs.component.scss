@@ -1,0 +1,437 @@
+#container .mix {
+    display: inline-block;
+}
+.cmn-btn-postular {
+    display: initial !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 32px;
+
+    position: static !important;
+    width: 147px;
+    height: 60px;
+    right: 128px !important;
+    bottom: 24px !important;
+
+    /* Azul */
+
+    border: 2px solid #12369e;
+    border-radius: 6px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px !important;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+
+    letter-spacing: 0.005em;
+
+    /* Azul */
+
+    color: #12369e !important;
+    text-decoration-line: none;
+}
+.company-item {
+    -webkit-transition-property: none;
+    -moz-transition-property: none;
+    -o-transition-property: none;
+    transition-property: none;
+    height: 422px;
+    left: 0px;
+    top: 0px;
+
+    /* Blanco */
+
+    background: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    border: 1px #636363;
+}
+.employer-area .section-title {
+    text-align: left;
+}
+.relatedjobs {
+    height: 45px;
+    left: 539px;
+    top: 838px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 150%;
+    /* identical to box height, or 45px */
+
+    align-items: center;
+    letter-spacing: 0.005em;
+
+    /* Azul */
+
+    color: #12369e;
+    text-align: center;
+    padding-top: 78px;
+    padding-bottom: 32px;
+}
+.company-area {
+    background-color: #f6f9ff;
+}
+.company-item .top h3 a,
+.company-item .top .h3 a {
+    width: 253px;
+    height: 30px;
+    left: 23px;
+    top: 58px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 150%;
+    /* identical to box height, or 30px */
+
+    align-items: center;
+    letter-spacing: 0.005em;
+
+    /* Negro gris */
+
+    color: #3f3f3f;
+    text-decoration-line: none;
+    text-transform: uppercase;
+    
+}
+.companytext {
+    height: 24px;
+    left: 23px;
+    top: 93px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px !important;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+
+    align-items: center;
+    letter-spacing: 0.005em;
+
+    /* Negro gris */
+
+    color: #3f3f3f !important;
+    margin-bottom: 16px !important;
+}
+.datejob {
+    height: 15px;
+    left: 23px;
+    top: 28px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px !important;
+    line-height: 150%;
+    /* identical to box height, or 15px */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.005em;
+    margin-bottom: 16px !important;
+
+    /* Negro gris */
+
+    color: #3f3f3f !important;
+}
+.jobdetailtext {
+    width: 100%;
+    height: 75px;
+    left: 23px;
+    top: 132px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px !important;
+    line-height: 150%;
+    /* or 21px */
+
+    align-items: center;
+    letter-spacing: 0.005em;
+
+    /* Negro gris */
+
+    color: #3f3f3f !important;
+    margin-bottom: 16px !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: justify;
+    
+}
+.company-item .top p{
+    text-align: justify;
+}
+
+.jobsubdetailtext {
+    height: 21px;
+    left: 63px;
+    top: 215px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px !important;
+    line-height: 150%;
+    align-items: center;
+    letter-spacing: 0.005em;
+
+    color: #3f3f3f !important;
+    i {
+        color: #ffad06;
+        left: 12.5%;
+        right: 12.5%;
+        top: 4.17%;
+        bottom: 4.17%;
+        font-size: 15px;
+    }
+}
+.jobtitle {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.listajobdetail {
+    list-style: none;
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #3f3f3f;
+    padding: 0px;
+    i {
+        color: #ffad06;
+        padding-right: 20px;
+        
+    }
+   
+}
+.company-item .bottom{
+    padding-top: 43px;
+    
+}
+
+.content {
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    padding: 5px 90px 5px 90px;
+    display: flex;
+    gap: 20px;
+    &__filter {
+        width: 25%;
+        &__card {
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            padding: 25px;
+            &__header {
+                display: flex;
+                gap: 10px;
+                h1 {
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 25px;
+                    line-height: 150%;
+                    color: #12369E;
+                }
+            }
+            hr {
+                width: 80%;
+            }
+            &__body {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                &-item {
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                }
+            }
+        }   
+    }
+    &__body {
+        width: 80%;
+        &__order {
+            display: flex;
+            gap: 5px;
+            span {
+                font-style: normal;
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 150%;
+                color: #12369E;
+                margin-right: 20px;
+            }
+            button {
+                font-style: normal;
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 150%;
+                letter-spacing: 0.005em;
+                color: #12369E;
+                border: none;
+                background-color: #ffffff;
+            }
+        }
+        &__card {
+            margin-top: 20px;
+        }
+    }
+}
+
+
+.content__ofert {
+    padding: 5px 90px 5px 90px;
+    display: flex;
+    flex-direction: column;
+    // text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    background: #F6F9FF;
+    h1 {
+       
+        text-align: center;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 150%;
+        letter-spacing: 0.005em;
+
+/* Azul */
+
+color: #12369E;
+
+
+padding-top: 78px;
+    padding-bottom: 32px;
+
+    }
+    &__scroll {
+        display: flex;
+        align-items: center;
+        &__content {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            overflow: auto;
+            margin-bottom: 5%;
+        }
+    }
+  
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+  }
+
+.width-card {
+    min-width: 298px !important;
+    max-width: 300px !important; 
+}
+@media screen and (max-width: 960px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 30px 5px 30px;
+        &__filter {
+            width: 100%;
+            &__card {
+                &__header {
+                    justify-content: center;
+                }
+                hr {
+                    width: 100%;
+                }
+                &__body {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    gap: 15px;
+                }
+            }
+        }
+        &__body {
+            width: 100%;
+        }
+    }
+    .content__ofert {
+        padding: 5px 30px 5px 30px;
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    .content {
+        &__filter {
+            &__card {
+                &__body {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-device-width: 480px) {
+    .content__ofert{
+        padding: 310px 30px 5px 30px !important;
+    }
+
+    .datejob{ font-size: 16px !important; }
+
+    .company-item {
+        width: 100% !important;
+    }
+    .company-item .top h3{ font-size: 18px !important; }
+    .top > div { height: 36px !important;}
+    .imgcompanyjob{ height: 130px !important; }
+    .listajobdetail{ font-size: 16px !important; }
+
+    .company-item .bottom {
+        padding-top: 0px !important;
+        display: flex !important;
+        width: 70% !important;
+        margin: auto;
+    }
+    .cmn-btn-postular{
+        width: 100% !important;
+        font-size: 20px !important;
+        // padding: 0px !important;
+    }
+    .width-card {
+        min-width: 290px !important;
+    }
+
+    .company-item {
+        height: 460px;
+    }
+
+    .content__ofert > h1 {
+        padding-top: 10px !important;
+    }
+
+    .content__ofert {
+        padding-top: 0px !important;
+    }
+}
+
+.datejob{
+    font-size: 13px !important;
+}

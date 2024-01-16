@@ -1,0 +1,65 @@
+.contenedor-experience {
+    background: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #12369e;
+}
+
+.puesto {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 170%;
+    color: #3f3f3f;
+}
+
+.company {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 147%;
+    color: #3f3f3f;
+}
+
+.info-adicional {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 147%;
+    color: #3f3f3f;
+}
+
+.button-agregar {
+    width: 145px;
+    height: 60px;
+    background: #ffedc8;
+    border-radius: 6px;
+    border: none;
+    color: #12369e;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+.html-editor {
+    // width: 60%;
+    width: 100%;
+    overflow: auto;
+}
+
+li {
+    // list-style-type: initial !important; 
+    // display: initial !important;
+    color: blue !important;
+    // font-weight: initial !important;
+}

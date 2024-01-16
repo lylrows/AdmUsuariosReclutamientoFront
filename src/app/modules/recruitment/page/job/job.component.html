@@ -1,0 +1,236 @@
+<div class="topfiltercontainer">
+    <div class="topmobile topfiltersubcontainer">
+        <ul>
+            <li class="primero">Encuentra tu puesto ideal en nuestra bolsa laboral</li>
+            <li >
+                <select id="inputState"  [(ngModel)]="idcategory"  class="form-control combo"  >
+                    <option value="0" selected>Tipo de Posición</option>
+                    <option [value]="item.nid_category" *ngFor="let item of categoriestype">
+                        {{ item.sdescription }}
+                    </option>
+                </select>
+            </li>
+            <li >
+                <select id="nvllaboral"  [(ngModel)]="idjoblevel" (change)="onChangeJobLevelFilter($event)" class="form-control combo" >
+                    <option value="0" selected>Nivel Laboral</option>
+                    <option [value]="item.id" *ngFor="let item of jobLevels">
+                        {{ item.descriptionValue }}
+                    </option>
+                </select>
+            </li>
+            <!-- <li >
+                <select id="inputState"  [(ngModel)]="idCompany"  class="form-control combo"  (change)="getAreas();onChangeCompanyFilter($event)">
+                    <option value="0"  selected>Empresa</option>
+                    <option [value]="item.code"  *ngFor="let item of CompanyList">
+                        {{ item.description }} 
+                    </option>
+                </select>
+                (change)="onChangeAreaFilter($event)" 
+            </li> -->
+            
+            <li>
+                <button type="submit" class="btn btn-primary button-buscar" style="cursor: pointer;" (click)="getAllJobs()" >
+                    Buscar  
+                </button>
+            </li>
+
+        </ul>
+    </div>
+
+</div>
+
+<!-- Jobs -->
+<div class="job-area-list ptb-100" style="padding-top: 30px;">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <ul class="job-list-item align-items-center lista-responsive">
+                    <li>
+                        <!-- <a href="#"><span>(17)</span>Empleos encontrados </a> -->
+                        <!-- <a class="rss" routerLink="/"><i class='bx bx-rss'></i>RSS Feed</a> -->
+                    </li>
+                    <li class="textencontrados">
+                        &nbsp;
+                    </li>
+                </ul>
+                <div class="job-list-right d-flex justify-content-end">
+                    <div class="job-list-all" id="containerparams">
+           
+                        <div class="search"></div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="row">
+                                <div style="cursor: pointer;" class="col-lg-12 col-md-12 col-sm-12 mt-4 text-title" (click)="isShowempresa = !isShowempresa">
+                                    <img style="margin-right: 5px;" src="../../../../../assets/icons/modalidad.png" alt="">  Empresa<i *ngIf="!isShowempresa" style="margin-left: 10px;" class="pi pi-chevron-down"></i><i *ngIf="isShowempresa" style="margin-left: 10px;" class="pi pi-chevron-up"></i>
+                                </div>
+                                <div *ngIf="isShowempresa" class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                                    <ul class="job-cmn-cat">
+                                        <li *ngFor="let comp of CompanyList;">
+                                            <div class="form-check">
+                                                <input style="cursor: pointer;"  class="form-check-input" type="checkbox"  [checked]="comp.code === idCompany"  value="" id="company_{{comp.code}}"
+                                                    (change)="onChangeCompanyFilter($event)" [name]="comp.code" >
+                                                <label style="cursor: pointer;" class="form-check-label" for="company_{{comp.code}}">{{comp.description}}</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div style="cursor: pointer;" class="col-lg-12 col-md-12 col-sm-12 mt-4 text-title" (click)="isShowDates = !isShowDates">
+                                   <img style="margin-right: 5px;" src="../../../../../assets/icons/calendar.png" alt=""> Fecha de publicación <i *ngIf="!isShowDates" style="margin-left: 10px;" class="pi pi-chevron-down"></i><i *ngIf="isShowDates" style="margin-left: 10px;" class="pi pi-chevron-up"></i>
+                                </div>
+                                <div *ngIf="isShowDates" class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                                    <ul class="job-cmn-cat">
+                                        <li *ngFor="let date of dateFilterList;">
+                                            <div class="form-check">
+                                                <input style="cursor: pointer;" class="form-check-input" type="checkbox" value="" id="'datetime'_{{date.code}}"
+                                                    (change)="onChangeDateFilter($event)" [name]="date.code"
+                                                    >
+                                                    <!-- [disabled]="dateFilterisChecked && (dateFilterCheckedName!=date.code)" -->
+                                                    <label style="cursor: pointer;" class="form-check-label" for="'datetime'_{{date.code}}">{{
+                                                    date.description}}</label>
+                                            </div>
+                                        </li>
+    
+                                    </ul>
+                                </div>
+                                <div style="cursor: pointer;" class="col-lg-12 col-md-12 col-sm-12 mt-4 text-title" (click)="isSHowTipoPuesto = !isSHowTipoPuesto">
+                                    <img style="margin-right: 5px;" src="../../../../../assets/icons/puesto.png" alt="">   Tipo de puesto <i *ngIf="!isSHowTipoPuesto" style="margin-left: 10px;" class="pi pi-chevron-down"></i><i *ngIf="isSHowTipoPuesto" style="margin-left: 10px;" class="pi pi-chevron-up"></i>
+                                </div>
+                                <div *ngIf="isSHowTipoPuesto" class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                                    <ul class="job-cmn-cat">
+                                        <li *ngFor="let lvl of modalityList;">
+                                            <div class="form-check">
+                                                <input style="cursor: pointer;" class="form-check-input" type="checkbox" value="" id="'modali'_{{lvl.id}}"
+                                                    (change)="onChangeModalityFilter($event)" [name]="lvl.id"
+                                                    >
+                                                    <!-- [disabled]="modalityFilterisChecked && (modalityCheckedName!=lvl.id)" -->
+
+                                                    <label style="cursor: pointer;" class="form-check-label" for="'modali'_{{lvl.id}}">{{
+                                                    lvl.descriptionValue}}</label>
+                                            </div>
+                                        </li>
+    
+                                    </ul>
+                                </div>
+                                <!-- <div style="cursor: pointer;" class="col-lg-12 col-md-12 col-sm-12 mt-4 text-title" (click)="isModalidad = !isModalidad">
+                                    <img style="margin-right: 5px;" src="../../../../../assets/icons/modalidad.png" alt=""> Modalidad de trabajo <i *ngIf="!isModalidad" style="margin-left: 10px;" class="pi pi-chevron-down"></i><i *ngIf="isModalidad" style="margin-left: 10px;" class="pi pi-chevron-up"></i>
+                                </div>
+                                <div *ngIf="isModalidad" class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                                    <ul class="job-cmn-cat">
+                                        <li *ngFor="let mod of modalityWorkList;">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck54"
+                                                    (change)="onChangeModalityWorkFilter($event)" [name]="mod.id"
+                                                    >
+                                                     [disabled]="modalityWorkFilterisChecked && (modalityWorkCheckedName!=mod.id)" 
+
+                                                    <label class="form-check-label" for="defaultCheck54">{{
+                                                    mod.descriptionValue}}</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div> -->
+                                <div style="cursor: pointer;" class="col-lg-12 col-md-12 col-sm-12 mt-4 text-title" (click)="isPostulante = !isPostulante">
+                                    <img style="margin-right: 5px;" src="../../../../../assets/icons/discapacidad.png" alt="">  Postulante c/ discapacidad <i *ngIf="!isPostulante" style="margin-left: 10px;" class="pi pi-chevron-down"></i><i *ngIf="isPostulante" style="margin-left: 10px;" class="pi pi-chevron-up"></i>
+                                </div>
+                                <div *ngIf="isPostulante" class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                                    <ul class="job-cmn-cat">
+                                        <li *ngFor="let mod of IsDiscapacityList;">
+                                            <div class="form-check">
+                                                <input style="cursor: pointer;" class="form-check-input" type="checkbox" value="" id="'discapacy'_{{mod.description}}"
+                                                    (change)="onChangeModalityDiscapacity($event)" [name]="mod.description"
+                                                    >
+                                                    <!-- [disabled]="modalityWorkFilterisChecked && (modalityWorkCheckedName!=mod.id)" -->
+
+                                                    <label style="cursor: pointer;" class="form-check-label" for="'discapacy'_{{mod.description}}">{{
+                                                    mod.description}}</label>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search">
+                           
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <ul class="job-list-item align-items-center">
+                    <li>
+                        
+                    </li>
+                    <li class="textencontrados">
+                        <span>{{ jobscount }}</span> Empleos encontrados
+                    </li>
+                </ul>
+
+                <div class="employer-item" *ngFor="let jobcur of joblist;">
+                    <div class="row">
+                        <div class="col-lg-10 col-md-12 col-sm-12 divContenedor">
+                            <img src="{{jobcur.scompanyimageurl}}" width="80px" alt="Empresa" class="imgcompanyjob">
+                         <h3>{{jobcur.stitle}}</h3>
+                             <ul class="primeralista">
+
+                                <li><i class="pi pi-clock"></i>{{jobcur.sjobtype}}</li>
+                                <li><i class="pi pi-home"></i>{{jobcur.slocation}}</li>
+                                <li><i class="pi pi-map-marker"></i>{{jobcur.smodality}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 col-md-12 col-sm-12 pt-2">
+                            <div class="row">    
+                               <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end align-content-center">
+                               </div>
+                               <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end mt-3">
+                                 <button class="cmn-btn-postular" (click)="navigate(jobcur.id_job)" style="cursor: pointer;" >Ver Empleo</button>
+                               </div>
+                            </div>
+                        </div>
+                     </div>
+                     <hr>
+                     <table style="width: 100%;">
+                         <tr>
+                             <td class="lifooter" >
+                                <span *ngIf="jobcur.nsalary == null">Sueldo neto pretendido: <br class="saltotext"> No especificado</span>
+                                <span *ngIf="jobcur.nsalary != null">Sueldo neto pretendido: <br class="saltotext"> S/. {{jobcur.nsalary}}</span>
+                                <!--
+                                {{ jobcur.nsalary == null ? "Sueldo neto pretendido: No especificado" : " Sueldo neto pretendido: S/. "+ jobcur.nsalary }}
+                                -->
+                            </td>
+                             <td class="lifooter" style="text-align: center;" >Fecha de publicación: {{jobcur.screationdate}}</td>
+                         </tr>
+                     </table>
+                </div>
+
+
+
+                <div class="pagination-area">
+
+
+                    <pagination [boundaryLinks]="showBoundaryLinks" 
+                            [directionLinks]="showDirectionLinks" 
+                            [totalItems]="totalItems"
+                            [itemsPerPage]="5"
+                            (pageChanged)="pageChanged($event)"
+                            [firstText]="firstText" 
+                            [lastText]="lastText"   
+                            [previousText]="prevText"   
+                            [nextText]="nextText"  
+                            [maxSize]="maxSize"
+                            class="my-pagination"  
+                    ></pagination>
+                    <br/>
+                    
+                </div> 
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Jobs -->
+<div *ngIf="isLogged==false">
+    <app-new-letter ></app-new-letter>
+</div>

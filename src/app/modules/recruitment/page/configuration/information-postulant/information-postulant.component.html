@@ -1,0 +1,113 @@
+<div class="widget-area">
+    <div *ngIf="person != undefined" class="row contenedor-informacion">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
+                  <a (click)="openModalWithComponent()" style="cursor: pointer;"><img src="../../../../../../assets/icons/edit.png" alt=""></a>
+                </div> 
+                 <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
+                     <div class="avatar">
+                       <img [src]="imgPerfil" alt="">
+                       <div class="avatar-icon">
+                           <input type="file" name="" id="file" (change)="captureFile($event)" #file hidden>
+                          <a (click)="file.click()" style="cursor: pointer;"><img for="file" src="../../../../../../assets/icons/cam.png" alt=""></a>
+                       </div>
+                     </div>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mt-3 name-postulant">{{person.firstName}} {{person.lastName}}</div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-2 descripcion">
+            Nacionalidad:
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-2 d-flex justify-content-end information">
+            {{person.nationality}}
+            <div *ngIf="person.nationality==null">No definido</div>
+        </div>
+        <div class="col-lg-6 col-md-7 col-sm-6 col-6 mt-2 descripcion">
+            Fecha de nacimiento:
+        </div>
+        <div class="col-lg-6 col-md-5 col-sm-6 col-6 mt-2 d-flex justify-content-end information">
+           {{person.birthDate}}
+           <div  *ngIf="person.birthDate==null">No definido</div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-2 descripcion">
+            Género:
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-2 d-flex justify-content-end information">
+           {{person.sex == 'F' ? 'Femenino': 'Masculino'}}
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-2 descripcion">
+            Estado Civil:
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-2 d-flex justify-content-end information">
+            {{person.civilStatus}}
+           <div *ngIf="person.civilStatus==null">No definido</div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-2 descripcion">
+            Documento:
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-2 d-flex justify-content-end information">
+            {{person.documentNumber}}
+            <div *ngIf="person.documentNumber==0">No definido</div>
+        </div>
+    </div>
+    <div *ngIf="person != undefined" class="mt-4 row contenedor-informacion">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
+                    <a (click)="openModalContact()" style="cursor: pointer;"><img src="../../../../../../assets/icons/edit.png" alt=""></a>
+                </div> 
+                 <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center title">
+                    Datos de contacto
+                 </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 mt-3 information-contact">
+          <span style="margin-right: 3%;"><img src="../../../../../../assets/icons/cel.png" alt=""></span>  {{person.cellPhone}} 
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 mt-3 information-contact">
+            <span style="margin-right: 3%;"><img src="../../../../../../assets/icons/correo.png" alt=""></span>  {{person.email}} 
+        </div>
+        <div class="col-lg-12 col-md-6 col-sm-12 mt-3 information-contact">
+            <span style="margin-right: 3%;"><img src="assets/icons/casa.png" alt=""></span> {{person.address}} 
+            <!-- <span style="margin-right: 3%;"><img src="../../../../../../assets/icons/casa.png" alt=""></span> {{person.address}}  -->
+        </div>
+        <div class="col-lg-12 col-md-6 col-sm-12 mt-3 information-contact" style="cursor: pointer;" (click)="openProfesionalURL(person.urlProfesional)">
+            <span style="margin-right: 3%; cursor: pointer;"><i class="pi pi-globe icon-url"></i></span> {{person.urlProfesional}} 
+        </div>
+    </div>
+    <div class="mt-4 mb-4 row contenedor-informacion">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex d-flex justify-content-center title">
+           Subir PDF / Word
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mt-2" style="cursor: pointer;">
+            <div style="cursor: pointer;" class="container d-flex align-items-center" appDnd (fileDropped)="onFileDropped($event)" for="fileDropRef">
+                <input style="cursor: pointer;" *ngIf="namefile == '' || namefile == null" type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event.target.files)" />
+                <div class="row" style="width:100%;cursor: pointer;" *ngIf="namefile == '' || namefile == null">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <svg *ngIf="namefile == '' || namefile == null" width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 16.5328L17.8167 30.3553C16.0791 32.0487 13.7225 33 11.2652 33C8.80792 33 6.45128 32.0487 4.71371 30.3553C2.97615 28.662 2 26.3653 2 23.9705C2 21.5757 2.97615 19.279 4.71371 17.5856L18.897 3.76312C20.0554 2.63421 21.6265 2 23.2647 2C24.9029 2 26.474 2.63421 27.6323 3.76312C28.7907 4.89203 29.4415 6.42316 29.4415 8.01968C29.4415 9.6162 28.7907 11.1473 27.6323 12.2762L13.4336 26.0988C12.8544 26.6632 12.0689 26.9803 11.2498 26.9803C10.4307 26.9803 9.64513 26.6632 9.06594 26.0988C8.48675 25.5343 8.16137 24.7687 8.16137 23.9705C8.16137 23.1722 8.48675 22.4067 9.06594 21.8422L22.1689 9.08758" stroke="#12369E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>         
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center"  style="cursor: pointer;">
+                        <h3 *ngIf="namefile == '' || namefile == null" class="mt-3">Adjunta tu archivo aquí</h3>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 divLoadedFile" *ngIf="namefile != null && namefile != ''">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <span class="text-file"><i class="icon-p pi pi-file"></i> {{namefile}}</span>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <a style="cursor: pointer;" (click)="deleteFile(i)" style="cursor: pointer;"><img src="assets/icons/delete.png" alt=""></a>
+                            <a (click)="downLoad()" style="margin-left: 10px;" style="cursor: pointer;"><img src="assets/icons/descargar.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<p-toast></p-toast>

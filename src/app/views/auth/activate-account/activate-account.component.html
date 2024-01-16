@@ -1,0 +1,33 @@
+<!-- Login -->
+<p-toast></p-toast>
+<app-header-side></app-header-side>
+<div class="user-form-area">
+    <div class="container-fluid p-0">
+        <div class="row m-0 align-items-center">
+            <div class="col-lg-6 p-0 col-md-12">
+                <div class="user-content">
+                    <div class="top">
+                        <div class="message">¡Estas a un paso de postularte!</div>
+                        <div class="col-lg-12 col-sm-12 col-md-12 mt-3">
+                           <span style="color: black;">Activa tu cuenta a través del email que te enviamos a <strong>{{email}}</strong></span> 
+                        </div>
+                        <div class="col-lg-12 col-sm-12 col-md-12 mt-3">
+                            <span style="color: black;">No lo recibiste?</span> 
+                         </div>
+                         <div class="col-lg-12 col-sm-12 col-md-12 mt-3 d-flex justify-content-center">
+                          <button type="submit" (click)="sendMailRetrieve();" style="max-width: 300px; background: #12369E !important;cursor: pointer;" 
+                          class="btn">Reenviarme el email</button>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0 col-md-12">
+                <div class="user-img">
+                    <img class="w-100" style="object-fit: cover;" src="assets/img/resgister-bg.jpg" alt="User">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+<!-- End Login -->

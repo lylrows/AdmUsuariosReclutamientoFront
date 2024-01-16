@@ -1,0 +1,50 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left title">{{title}}</h4>
+    <span class="indicador-campos indicatoridioma">*Campos obligatorios</span>
+    <button type="button" class="btn-close close pull-right btnidioma" aria-label="Close" style="cursor: pointer;" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <label for="inputEmail4" class="form-label">Idioma <span class="required">*</span></label>
+                    <select id="inputState" class="form-select" formControlName="idLanguagePostulant">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.id" *ngFor="let item of itemLang">{{item.descriptionValue}}</option>
+                    </select>
+                    <small
+                    *ngIf="form.controls['idLanguagePostulant'].hasError('required') && form.controls['idLanguagePostulant'].touched"
+                    style="color: red;">Es un campo obligatorio </small>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Nivel escrito <span class="required">*</span></label>
+                    <select id="inputState" class="form-select" formControlName="idWrittenLeven">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.id" *ngFor="let item of itemMaster">{{item.descriptionValue}}</option>
+                    </select>
+                    <small
+                    *ngIf="form.controls['idWrittenLeven'].hasError('required') && form.controls['idWrittenLeven'].touched"
+                    style="color: red;">Es un campo obligatorio </small>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Nivel oral <span class="required">*</span></label>
+                    <select id="inputState" class="form-select" formControlName="idOralLeven">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.id" *ngFor="let item of itemMaster">{{item.descriptionValue}}</option>
+                    </select>
+                    <small
+                    *ngIf="form.controls['idOralLeven'].hasError('required') && form.controls['idOralLeven'].touched"
+                    style="color: red;">Es un campo obligatorio </small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mt-4 divButtons">
+            <button type="submit" class="button-grabar" [disabled]="form.invalid" style="cursor: pointer;">Guardar</button>
+            <button type="button" class="mx-4 button-cancel" (click)="bsModalRef.hide()" style="cursor: pointer;">{{closeBtnName}}</button>
+        </div>
+    </form>
+</div>
+<p-toast></p-toast>

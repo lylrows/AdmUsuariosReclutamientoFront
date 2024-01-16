@@ -1,0 +1,448 @@
+.employer-item {
+    background: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    border: 1px solid white;
+    padding: 25px 35px 25px 26px;
+}
+.span-two {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 150%;
+    color: #3f3f3f;
+    background-color: white;
+}
+.employer-item h3,
+.employer-item .h3 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #3f3f3f;
+    text-transform: uppercase;
+    padding-top: 15px;
+}
+a {
+    text-decoration-line: none;
+}
+.employer-item h2,
+.employer-item .h2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 150%;
+    color: #3f3f3f;
+}
+// .employer-item ul li {
+//     display: inherit;
+//     font-family: Roboto;
+//     font-style: normal;
+//     font-weight: 500;
+//     font-size: 14px;
+//     line-height: 150%;
+//     letter-spacing: 0.005em;
+//     color: #3f3f3f;
+// }
+// .employer-item ul li:last-child {
+//     color: #3f3f3f;
+//     margin: 0px 10px 0px 0px;
+// }
+// .flaticon-send:before {
+//     color: #ffad06;
+// }
+.job-area-list .job-list-item li:last-child .form-group .nice-select {
+    border: solid 1px white;
+}
+.ptb-100 {
+    background-color: #f6f9ff;
+}
+#containerparams {
+//    cursor: pointer;
+    width: 350px;
+    background: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    border: solid 1px #f6f9ff;
+    color: #12369e;
+    label {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.005em;
+        color: #000000;
+    }
+    .flaticon-send:before {
+        color: white !important;
+    }
+    #btnbuscar1 {
+        background: #12369e;
+    }
+    #btnbuscar2 {
+        background: #12369e;
+        border-radius: 6px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.005em;
+        color: white;
+    }
+}
+#btnAlert {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #ffffff;
+    width: 100%;
+    background: #12369e;
+}
+#divAlert {
+    padding: 0px;
+    border: none;
+}
+
+accordion-group {
+    ::ng-deep {
+        div {
+            & > div.panel-heading.card-header.panel-enabled {
+                background-color: white; // change the background of every accordion heading
+                border: none;
+                .btn-link {
+                    color: #12369e; // change the accordion heading buttons style
+                    font-family: Roboto;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 150%;
+                    letter-spacing: 0.005em;
+                    text-decoration-line: none;
+                    box-shadow: none;
+                }
+            }
+
+            & > div.panel-collapse.collapse.in.show > div {
+                background-color: white; // change the expanded content style
+                border: none;
+            }
+        }
+    }
+}
+.imgcompanyjob {
+    position: initial;
+}
+.primeralista {
+    display: inline-block;
+    li {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 150%;
+        letter-spacing: 0.005em;
+        color: #3f3f3f;
+        .pi {
+            color: #ffad06;
+        }
+    }
+}
+.segundalista {
+    display: inline-block;
+    li {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+        letter-spacing: 0.005em;
+        color: #3f3f3f;
+        .pi {
+            color: #ffad06;
+        }
+    }
+}
+.job-area-list .job-list-item li {
+    list-style-type: none;
+    display: inline-block;
+    flex: 0 0 40%;
+    max-width: 40%;
+}
+.job-area-list .job-list-item li:last-child {
+    flex: 0 0 60%;
+    max-width: 60%;
+    text-align: right;
+}
+.textencontrados {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #3f3f3f;
+    span {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 150%;
+        letter-spacing: 0.005em;
+        color: #12369e;
+    }
+}
+.topfiltercontainer {
+    padding-top: 100px;
+
+    align-items: center;
+
+    text-align: center;
+
+    li {
+        display: inline-block;
+        padding-right: 23px;
+    }
+    button {
+        width: 115px;
+        height: 60px;
+        background: #12369e;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .topfiltersubcontainer {
+        height: 180px;
+        background-color: #ffad06;
+        padding-top: 60px;
+    }
+
+    .primero {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 150%;
+        letter-spacing: 0.005em;
+        color: #3f3f3f;
+        max-width: 300px;
+        text-align: left;
+        vertical-align: middle;
+    }
+    .combo {
+        width: 200px !important;
+        height: 60px;
+        font-weight: 600;
+    }
+}
+
+.my-pagination::ng-deep .page-item.active .page-link {
+    z-index: 1;
+    color: #12369e;
+    background-color: #f6f9ff !important;
+    border: none;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+.my-pagination::ng-deep .page-link {
+    border: none;
+    background-color: #f6f9ff !important;
+    color: #3f3f3f;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+.text-ordenar {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #12369e;
+}
+
+.text-title {
+    color: #12369e; // change the accordion heading buttons style
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    text-decoration-line: none;
+    box-shadow: none;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.container {
+    max-width: 1420px;
+    width: 100%;
+}
+.job-cmn-cat{
+    padding-left: 33px;
+}
+
+.cmn-btn-postular {
+    display: initial !important;
+    flex-direction: row;
+    justify-content: center;
+
+    align-items: center;
+
+    position: static !important;
+    width: 150px;
+    height: 50px;
+    right: 128px !important;
+    bottom: 24px !important;
+
+    /* Azul */
+
+    background: white;
+    border: 2px solid #12369e;
+    border-radius: 6px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px !important;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+
+    letter-spacing: 0.005em;
+
+    /* Azul */
+
+    color: #12369e !important;
+    text-decoration-line: none;
+}
+.lifooter{
+    // width: 33.33%;
+    margin-right: 0px;
+
+
+    font-family: 'Roboto';
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 150% !important;
+    letter-spacing: 0.005em !important;
+
+    /* Negro gris */
+
+    color: #3F3F3F !important;
+    vertical-align: top;
+
+}
+
+.pagination-area{
+    overflow: scroll;
+}
+
+@media screen and (min-width:648px) and (max-width: 948px) {
+    .primero{
+        display: table-row !important;
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-device-width: 648px) {
+    
+    .topmobile {
+        height: auto !important;
+        padding-top: 10px !important;
+    }
+
+    .topmobile > ul {
+        display: grid !important;
+    }
+
+    .topmobile > ul > li{
+        max-width: 100% !important;
+        padding: 0px !important;
+        line-height: 2 !important;
+    }
+
+    .topmobile > ul > li > select{
+        width: 100% !important;
+    }
+
+    .topmobile > ul > li > button{
+        width: 50% !important;
+        font-size: 20px !important;
+    }
+
+    #containerparams{
+        width: 100% !important;
+    }
+
+    .cmn-btn-postular{
+        width: 50%;
+        font-size: 20px !important;
+        margin: auto !important;
+    }
+    .button-buscar {
+        margin-bottom: 10px !important;
+        margin-top: 10px !important;
+    }
+    .lista-responsive {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 443px){
+    .textsalary{
+         margin-bottom: 10px;
+    };
+}
+@media only screen and (max-width: 447px){
+    .textsalary{
+         margin-bottom: 10px;
+    };
+    .saltotext{
+        display: block;
+    }
+}
+@media only screen and (min-width: 900px){
+    .saltotext{
+        display: none;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .cmn-btn-postular{
+        font-size: 12px !important;
+    }
+    .divContenedor{
+        h3{
+            text-align: center;
+        }        
+    }
+}
+
+
+@media screen and (min-width:994px) and (max-width:1205px) {
+    .cmn-btn-postular{
+        font-size: 13px !important;
+    }
+}
+
+@media screen and (min-width:649px) and (max-width:768px) {
+    .job-list-all{
+        width: 100% !important;
+    }
+}

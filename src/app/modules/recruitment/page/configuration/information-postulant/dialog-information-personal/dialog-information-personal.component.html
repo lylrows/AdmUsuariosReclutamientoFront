@@ -1,0 +1,175 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left title">{{title}}</h4>
+    <span class="indicador-campos">*Campos obligatorios</span>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" style="cursor: pointer;" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                    <label for="inputEmail4" class="form-label">Nombre <span class="required">*</span></label>
+                    <input placeholder="Ingrese su nombre" type="text" class="form-control" formControlName="firstName"   maxlength="100">
+                    <small *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                    <label for="inputEmail4" class="form-label">Apellido Paterno <span class="required">*</span></label>
+                    <input placeholder="Ingrese sus apellido paterno" type="text" class="form-control" formControlName="lastName"   maxlength="100">
+                    <small
+                        *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                    <label for="inputEmail4" class="form-label">Apellido Materno <span class="required">*</span></label>
+                    <input placeholder="Ingrese sus apellido materno" type="text" class="form-control" formControlName="motherLastName"   maxlength="100">
+                    <small
+                        *ngIf="form.controls['motherLastName'].hasError('required') && form.controls['motherLastName'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+
+                <div  class="col-lg-4 col-md-12 col-sm-12 col-12">
+                    <label for="inputEmail4" class="form-label">Nacionalidad <span class="required">*</span></label>
+                    <select id="inputState" class="form-select" formControlName="idNationality">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.id" *ngFor="let item of lstCountry">{{item.descriptionValue}}</option>
+                    </select>
+                    <small *ngIf="form.controls['idNationality'].hasError('required') && form.controls['idNationality'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+
+                <div  class="col-lg-4 col-md-12 col-sm-12 col-12">
+                    <label for="inputEmail4" class="form-label">Estado civil <span class="required">*</span></label>
+                    <select id="inputState" class="form-select" formControlName="idCivilStatus">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.id" *ngFor="let item of lstCivilStatus">{{item.descriptionValue}}</option>
+                    </select>
+                    <small
+                        *ngIf="form.controls['idCivilStatus'].hasError('required') && form.controls['idCivilStatus'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+
+
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12 ">
+                    <label for="inputEmail4" class="form-label">Género <span class="required">*</span></label>
+                    <select id="inputState" class="form-select" formControlName="idSex">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option value="" [value]="item.id" *ngFor="let item of lstGender">{{item.descriptionValue}}</option>
+                    </select>
+                    <small *ngIf="form.controls['idSex'].hasError('required') && form.controls['idSex'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+ 
+                
+
+
+
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Fecha de nacimiento <span
+                            class="required">*</span></label>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-3 divDia">
+                            <select id="inputState" class="form-select" formControlName="day">
+                                <option [value]="null" hidden selected>Día</option>
+                                <option [value]="item.description" *ngFor="let item of lstDays">{{item.description}}</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-12 mt-2 mt-sm-0">
+
+                            <select id="inputState" class="form-select" formControlName="month">
+                                <option [value]="null" hidden selected>Mes</option>
+                                <option [value]="item.id" *ngFor="let item of lstMonth">{{item.description}}</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-2 mt-sm-0">
+
+                            <select id="inputState" class="form-select" formControlName="year">
+                                <option [value]="null" hidden selected>Año</option>
+                                <option [value]="item.description" *ngFor="let item of lstYear">{{item.description}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+      
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Tipo de documento <span
+                            class="required">*</span></label>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <select id="inputState" class="form-select" formControlName="idTypeDocument">
+                                <option hidden [value]="null" selected>Elige una opción</option>
+                                <option value="" [value]="item.id" *ngFor="let item of lsttypedoc">{{item.descriptionValue}}</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-2 mt-md-0">
+                            <input (keypress)="valideKey($event)" placeholder="Ingrese su número de documento" type="text" class="form-control" formControlName="documentNumber" id="inputEmail4"
+                                maxlength="15">
+                        </div>
+                    </div>
+                    <small *ngIf="form.controls['idTypeDocument'].hasError('required') && form.controls['idTypeDocument'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+
+
+           
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-3" >
+ 
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck"
+                                    formControlName="haveDriverLicense">
+                                <label class="form-check-label" for="gridCheck">
+                                  Poseo licencia de conducir
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-3"  *ngIf="enabled"  >
+                            <label for="inputEmail4" class="form-label">Licencia de conducir
+                            <span class="required">*</span></label>
+                            <input placeholder="Licencia de Conducir" type="text" class="form-control" 
+                            formControlName="licenceDrive" 
+                            id="inputEmail4" maxlength="10">
+                            
+                            <small *ngIf="form.controls['licenceDrive'].hasError('required') && 
+                                form.controls['licenceDrive'].touched"
+                                style="color: red;">Es un campo obligatorio </small>
+                                <small *ngIf="form.controls['licenceDrive'].hasError('maxlength') && 
+                                form.controls['licenceDrive'].touched"
+                                style="color: red;">  La licencia debe tener 10 caracteres como máximo. </small>
+                                <small *ngIf="form.controls['licenceDrive'].hasError('minlength') && 
+                                form.controls['licenceDrive'].touched"
+                                style="color: red;"> La licencia debe tener como mínimo 7 caracteres.</small>
+                                <small *ngIf="form.controls['licenceDrive'].hasError('pattern') && 
+                                form.controls['licenceDrive'].touched"
+                                style="color: red;"> La licencia no debe tener  caracteres especiales.</small>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck"
+                                    formControlName="haveOwnMobility">
+                                <label class="form-check-label" for="gridCheck">
+                                  Poseo movilidad propia
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 mt-3">
+
+                </div> 
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mt-4 divButtons">
+            <button type="submit" class="button-grabar" [disabled]="form.invalid" style="cursor: pointer;">Guardar</button>
+            <button type="button" class="mx-4 button-cancel" (click)="bsModalRef.hide()" style="cursor: pointer;">{{closeBtnName}}</button>
+        </div>
+    </form>
+</div>

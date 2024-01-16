@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left title">{{title}}</h4>
+    <span class="indicador-campos indidisca">*Campos obligatorios</span>
+    <button type="button" class="btn-close close pull-right btndisca" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    Si tienes alguna discapacidad, no es obligatorio que la declares. Pero si lo haces, te ayudará a encontrar puestos que mejor se adapten a tus necesidades.
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mt-3" *ngIf="archivo == null">
+                   <button for="file" type="button" class="btn-certificado" style="cursor: pointer;" (click)="fileInput.click()">Cargar certificado</button>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top: 16px;">
+                    Puedes subir un archivo de hasta 3.5M en formato .doc, .docx, .pdf o .jpg. <span class="required">*</span>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                   <div class="row">
+                      <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                        <input (change)="captureFile($event)" #fileInput type="file" id="file" hidden>
+                        <p class="titulo-archivo" [innerHTML]="nameFile"></p>
+                      </div>
+                      <div class="col-6 col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end" *ngIf="archivo != null">
+                          <a (click)="deletefile()"><img src="../../../../../../../assets/icons/delete.png" alt=""></a>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                     <label for="inputEmail4" class="form-label">Describe qué tipo de discapacidad tienes<span class="required">*</span></label>
+                     <textarea type="text" class="form-control" name="" id="" formControlName="description"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mt-4 divButtons">
+            <button type="submit" class="button-grabar" [disabled]="archivo == null" style="cursor: pointer;">Guardar</button>
+            <button type="button" class="mx-4 button-cancel" (click)="bsModalRef.hide()" style="cursor: pointer;">{{closeBtnName}}</button>
+        </div>
+    </form>
+</div>
+<p-toast></p-toast>

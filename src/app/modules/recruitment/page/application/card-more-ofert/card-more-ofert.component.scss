@@ -1,0 +1,100 @@
+.content__ofert__content__card {
+    padding: 15px;
+    width: 298px;
+    background: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    &-header {
+        display: flex;
+        margin-bottom: 15px;
+        span {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 10px;
+            line-height: 150%;
+            color: #3f3f3f;
+        }
+    }
+    &__body {
+        display: flex;
+        flex-direction: column;
+        h2 {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 150%;
+            color: #3f3f3f;
+            text-align: initial;
+        }
+        label {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 150%;
+            color: #3f3f3f;
+            text-align: left;
+            margin-bottom: 18px;
+        }
+        p {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 150%;
+            color: #3f3f3f;
+            text-align: initial;
+            margin-bottom: 20px;
+            max-height: 4rem;
+            overflow: hidden;
+        }
+        &__icon {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: initial;
+            &-element {
+                img {
+                    margin-right: 15px;
+                }
+            }
+        }
+        &__button {
+            margin-top: 20px;
+            text-align: initial;
+            button {
+                display: initial !important;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                position: static !important;
+                width: 147px;
+                height: 60px;
+                right: 128px !important;
+                bottom: 24px !important;
+                background: white;
+                border: 2px solid #12369e;
+                border-radius: 6px;
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px !important;
+                line-height: 150%;
+                letter-spacing: 0.005em;
+                color: #12369e !important;
+                -webkit-text-decoration-line: none;
+                text-decoration-line: none;
+            }
+        }
+    }
+}
+
+.details_job {
+    height:110px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-device-width: 480px) { 
+    .button-ver-empleo {
+        font-size: 20px !important;
+    }
+}

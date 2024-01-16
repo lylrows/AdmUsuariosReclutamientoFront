@@ -1,0 +1,72 @@
+<!-- Banner -->
+<div class="banner-area three">
+    <div class="banner-shape-three">
+        <img src="assets/img/home-three/banner-main-2.png" alt="Shape" class="imagenbanner" />
+    </div>
+
+    <div class="container-fluid" style="height: 800px;">
+        <div class="banner-content two three">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <img class="logofe" src="../../../../../assets/img/logos/logo_grupofe.svg" alt="">
+                    <!-- <p>Te ayudamos a encontrar cualquier tipo de trabajo.</p> -->
+                    <h1 class="titulohome">
+                        Encuentra tu puesto ideal en nuestra bolsa laboral 
+                    </h1>
+                    <div class="banner-form-area">
+                        <form [formGroup]="form" (ngSubmit)="submit()">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="form-group ">                
+                                        <select id="inputEmpresa"  formControlName="idEmpresa" class="form-control" (change)="getAreas()">
+                                            <option value="0" selected>Empresa</option>
+                                            <option [value]="item.code" *ngFor="let item of CompanyList">
+                                                {{ item.description }} 
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="form-group ">                
+                                        <select id="inputState"  formControlName="idcategory" class="form-control">
+                                            <option value="0" selected>Tipo de Posición</option>
+                                            <option [value]="item.nid_category" *ngFor="let item of categories">
+                                                {{ item.sdescription }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+
+                            <button type="submit" class="btn btn-primary button-buscar" style="cursor: pointer;" >
+                                Buscar
+                            </button>
+                        </form>
+                    </div>
+                    <p class="textpostulate">Postúlate y trabaja en cualquiera de nuestras empresas</p>
+                    <ol class="listalogos">
+                        <li>
+                            <img width="95px" src="../../../../../assets/img/logos/logo_grupofe_horizontal.svg" alt="Empresa" class="imgcompanyjob">
+                        </li>
+                        <li>
+                            <img src="../../../../../assets/img/logocampofe_min.svg" alt="Empresa" class="imgcompanyjob">
+                        </li>
+                        <li>
+                            <img src="../../../../../assets/img/logoprestafe_min.svg" alt="Empresa" class="imgcompanyjob">
+                        </li>
+                        <li>
+                            <img src="../../../../../assets/img/logofesalud_min.svg" alt="Empresa" class="imgcompanyjob">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="space-home"></div>
+<!-- End Banner -->
+<app-other-jobs [customtitle]="'Nuevos Puestos Laborales'"></app-other-jobs>
+
+<!--isloged-->
+<app-new-letter *ngIf="isLogged==false"></app-new-letter>

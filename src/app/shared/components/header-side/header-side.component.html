@@ -1,0 +1,95 @@
+<!-- Navbar -->
+<div class="navbar-area fixed-top">
+    <div class="mobile-nav">
+        <a routerLink="/recruitment/home" class="logo"><img src="assets/img/logos/logo_grupofe.svg" style="width: 66px;" alt="Logo"></a>
+    </div>     
+    <div class="main-nav three">
+        <div class="container-fluid" style="box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" routerLink="/recruitment/home"><img src="assets/img/logos/logo_grupofe_horizontal.svg" alt="Logo"></a>
+                
+                <div class="collapse navbar-collapse mean-menu">
+                    <ul class="navbar-nav">
+                        <div id="mobile" class="side-nav three" *ngIf="!getUser() && showMenu == true">
+
+                            <a class="login-left btn-register" href="#/register">
+                                <i class="flaticon-candidate"></i>  Regístrate</a>
+                            <a class="login-left btb-ingresar " href="#/auth/login">
+                                Ingresar</a>
+                             
+                        </div>
+                        <div id="mobile" class="card-perfil-mobile" *ngIf="getUser()">
+                            <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
+                                <img *ngIf="this.getUser()?.img != ''" class="avatar" src="{{this.getUser()?.img}}" alt="">
+                                <img *ngIf="this.getUser()?.img == ''" class="avatar" src="../../../../assets/img/user-default.jpg" alt="">
+                            </div>
+                            <div   class="col-lg-12 col-md-12 col-sm-12 mt-3 d-flex justify-content-center name-perfil" >
+                                {{ this.getUser()?.displayName }}
+                            </div>
+                            <div  class="col-lg-12 col-md-12 col-sm-12 mt-4 d-flex justify-content-center item-menu">
+                              <a class="item-menu" href="#/recruitment/account">Mi Cuenta</a>
+                             </div>
+                             <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center item-menu">
+                                <a class="item-menu" href="#/recruitment/application">Mis Postulaciones</a>  
+                             </div>
+                             <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center item-menu">
+                                <a class="item-menu" href="#/recruitment/configuration">Configuraciones</a>   
+                             </div>
+                             <div class="col-lg-12 col-md-12 col-sm-12 mt-5 mb-3 d-flex justify-content-center">
+                               <a href="#/auth/login" class="close-sesion"> <img src="../../../../assets/icons/log out.png" alt=""> Cerrar sesión</a>
+                               </div>
+                        </div>
+                    </ul>
+
+                    <div id="desktop" class="side-nav three" *ngIf="!getUser() && showMenu == true">
+
+                        <a class="login-left btn-register" routerLink="/register">
+                            <i class="flaticon-candidate"></i>  Regístrate</a>
+                        <a class="login-left btb-ingresar " routerLink="/auth/login">
+                            Ingresar</a>
+                        
+                    </div>
+                    <div id="desktop" class="side-nav three" *ngIf="getUser()" >
+                        <a class="round-perfil" (click)="showPerfil = true">
+                            <img *ngIf="this.getUser()?.img != ''" src="{{this.getUser()?.img}}" alt="">
+                            <img *ngIf="this.getUser()?.img == ''" src="../../../../assets/img/user-default.jpg" alt="">
+                        </a>
+
+                        <div class="card-perfil" *ngIf="showPerfil">
+                            <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end btn-cls">
+                                <i (click)="showPerfil = false" class="pi pi-times"></i>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
+                                <img *ngIf="this.getUser()?.img != ''" class="avatar" src="{{this.getUser()?.img}}" alt="">
+                                <img *ngIf="this.getUser()?.img == ''" class="avatar" src="../../../../assets/img/user-default.jpg" alt="">
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 mt-3 d-flex justify-content-center name-perfil">
+                                {{ this.getUser()?.displayName }}
+                            </div>
+                            <div  class="col-lg-12 col-md-12 col-sm-12 mt-4 d-flex justify-content-center item-menu">
+                              <a class="item-menu" (click)="showPerfil = false" routerLink="/recruitment/account">Mi Cuenta</a>
+                             </div>
+                             <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center item-menu">
+                                <a class="item-menu" (click)="showPerfil = false" routerLink="/recruitment/application">Mis Postulaciones</a>  
+                             </div>
+                             <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center item-menu">
+                                <a class="item-menu" (click)="showPerfil = false" routerLink="/recruitment/configuration">Configuraciones</a>   
+                             </div>
+                             <div class="col-lg-12 col-md-12 col-sm-12 mt-5 mb-3 d-flex justify-content-center">
+                               <a (click)="jwtAuth.signout()" class="close-sesion"> <img src="../../../../assets/icons/log out.png" alt=""> Cerrar sesión</a>
+                               </div>
+                        </div>
+                       <!--
+                            <a class="login-left btn-username" >
+                                <i class="pi pi-bell"></i> Bienvenido: {{ fullnameuser }}</a>
+                            <a class="login-left btn-register" (click)="jwtAuth.signout()" style="cursor: pointer;">
+                                <i class="flaticon-enter"></i>  Salir</a>    -->
+                    </div>
+
+
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- End Navbar -->

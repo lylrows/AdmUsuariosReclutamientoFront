@@ -1,0 +1,31 @@
+<div class="content__ofert__content__card">
+    <div class="content__ofert__content__card-header">
+        <span>Publicado el {{ itm.dregister | date: "dd/MM/YYYY" }}</span>
+    </div>
+    <div class="content__ofert__content__card__body">
+        <h2>{{ itm.stitle }}</h2>
+        <label>{{ itm.company }}</label>
+        <div class="details_job" [innerHTML]="itm.snoticedetails"></div>
+        <div class="content__ofert__content__card__body__icon">
+            <div class="content__ofert__content__card__body__icon-element">
+                <img src="../../../../../../assets/img/map pin.svg" alt="" />
+                <span>{{ itm.slocation }}</span>
+            </div>
+            <div class="content__ofert__content__card__body__icon-element">
+                <img
+                    src="../../../../../../assets/img/icon edificio.png"
+                    alt=""
+                />
+                <span>{{ itm.smodality }}</span> 
+            </div>
+            <div class="content__ofert__content__card__body__icon-element">
+                <img src="../../../../../../assets/img/database.png" alt="" />
+                <span *ngIf="itm.nsalary != 0">s/. {{ itm.nsalary }}</span>
+                <span *ngIf="itm.nsalary == 0">No Especificado</span>
+            </div>
+        </div>
+        <div class="content__ofert__content__card__body__button">
+            <button class="button-ver-empleo" (click)="navigate(itm.id_job)" style="cursor: pointer;">Ver Empleo</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="employer-item">
+    <div class="row">
+        <div class="content_header">
+            <div class="content_logo">
+                <img src="{{item.scompanyimageurl}}" width="80px" alt="Empresa" class="imgcompanyjob">
+            </div>
+            <div class="content_indicador content__body__card__header-state">
+                <span>{{item.sdescription_value}}</span>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-12 col-sm-12 contenedor1">
+            <h3 style="margin-top: 15px;">{{item.stitle}}</h3>
+            <ul class="primeralista">
+                <li><i class="pi pi-clock"></i>{{item.sjob_type}}</li>
+                <li><i class="pi pi-home"></i>{{item.slocation}}</li>
+                <li><i class="pi pi-map-marker"></i>{{item.smodality}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-12 col-sm-12 pt-2">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end align-content-center">
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end mt-3 divbutton">
+                    <button class="cmn-btn-postular" (click)="navigate(item.id_job)"
+                        style="cursor: pointer;">Ver Empleo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <table style="width: 100%;">
+        <tr>
+            <td class="lifooter">{{ item.nsalary == null ? "Sueldo neto pretendido: No especificado" : " Sueldo neto
+                pretendido: S/. "+ item.nsalary }}</td>
+            <td class="lifooter" style="text-align: center;">Fecha de publicación: {{item.ddatepublication |
+                date:'dd/MM/yyyy'}}</td>
+            <td class="lifooter" style="text-align: right;">Fecha de postulación: {{item.ddatepostulation |
+                date:'dd/MM/yyyy'}}</td>
+        </tr>
+    </table>
+    <!-- <ul class="segundalista" style="width: 100%;">
+         <li class="lifooter" >{{ jobcur.nsalary == null ? "Sueldo neto pretendido: No especificado" : " Sueldo neto pretendido: S/. "+ jobcur.nsalary }}</li>
+         <li class="lifooter" style="text-align: center;" >Fecha de publicación: {{jobcur.screationdate}}</li>
+         <li class="lifooter" style="text-align: right;" >Fecha de postulación: {{jobcur.screationdate}}</li>
+     </ul> -->
+</div>

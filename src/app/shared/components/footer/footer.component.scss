@@ -1,0 +1,73 @@
+.footer-area.three{
+    background-color: #3F3F3F;
+    
+}
+.copyright-area.three {
+    background-color: #ffffff;
+    color:#707070
+}
+.copyright-area.three .copyright-item p {
+    color:#707070
+}
+.copyright-area .copyright-item p a {
+    color: #536b93;
+    border-bottom: 1px solid #536b93;
+}
+.footer-item.three .footer-logo ul li {
+    color:#FFFFFF;
+}
+.footer-item.three .footer-logo ul li a{
+    color:#FFFFFF;
+}
+.footer-item.three .footer-service ul li a {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.005em;
+    color:#FFFFFF;
+}
+.footer-item.three h3{
+    color: #536b93;
+}
+.footer-item.three .footer-logo ul li span{
+    color: #536b93;
+}
+.footer-item .footer-newsletter form .btn{
+    background-color: #536b93;
+}
+.footer-item .footer-copyright ul li span{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 10px;
+    line-height: 12px;
+    color: #F6F9FF;
+}
+
+.logo-margin{
+    margin-bottom: 100px;
+    margin-left: 0px;
+    width: 80px;
+    height: 30px;
+}
+.lilogo{
+    width: 100px;
+}
+
+//responsive
+@media screen and (max-device-width: 480px) {
+
+    .footer-item.three .footer-service ul li a {
+        font-size: 16px !important;
+    }
+    .li-display {
+        display: none !important;
+    }
+    .three-final {
+        margin-bottom: 0px !important;
+    }
+}

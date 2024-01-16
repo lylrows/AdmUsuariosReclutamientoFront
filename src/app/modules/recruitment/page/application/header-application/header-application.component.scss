@@ -1,0 +1,124 @@
+.content {
+    margin: 0 auto;
+    max-width: 1320px;
+    width: 100%;
+    height: auto;
+    margin-top: 125px;
+    padding: 5px 80px 5px 80px;
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-left {
+            display: flex;
+            gap: 10px;
+            img {
+                width: 30px;
+                height: 30px;
+                margin: auto;
+            }
+            h1 {
+                font-style: normal;
+                font-weight: bold;
+                font-size: 29px;
+                line-height: 149%;
+                letter-spacing: 0.005em;
+                color: #12369e;
+                margin: auto;
+            }
+        }
+        &-rigth {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            span {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 130%;
+                color: #3f3f3f;
+            }
+            button {
+                width: 180px;
+                height: 50px;
+                background: #ffad06;
+                border-radius: 6px;
+                color: #fff;
+                border: none;
+            }
+        }
+    }
+    &__info {
+        display: flex;
+        justify-content: center;
+        gap: 80px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background: #F6F9FF;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        hr {
+            height: 70px;
+            width: 2px;
+            background-color: black;
+        }
+        &__detail {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            &-header {
+                display: flex;
+                gap: 8px;
+                img {
+                    width: 34px;
+                    height: 30px;
+                    margin: auto;
+                }
+                span {
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 38px;
+                    line-height: 150%;
+                    color: #3f3f3f;
+                }
+            }
+            &-span {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 150%;
+                color: #3f3f3f;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 782px) {
+    .content {
+        margin-top: 125px;
+        &__title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &-left {
+                margin-bottom: 10px;
+            }
+            &-rigth {
+                text-align: center;
+            }
+        }
+        &__info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 25px;
+            hr {
+                display: none;
+            }
+            &__detail {
+                display: flex;
+                width: max-content;
+                justify-self: center;
+            }
+        }
+    }
+}

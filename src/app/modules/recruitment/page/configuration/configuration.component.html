@@ -1,0 +1,41 @@
+<!-- Candidate Details -->
+<div class="topfiltercontainer">
+   
+
+</div>
+<div class="person-details-area" style="margin-top: 1%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-12">
+                <app-information-postulant [person]="person" [user]="user"></app-information-postulant>
+            </div>
+            <div class="col-lg-9 col-md-12"> 
+                <div class="details-item px-4">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                            <p-tabView styleClass="redText" >
+                                <p-tabPanel header="Educación" >
+
+                                    <app-information-education [user]="user"></app-information-education>
+
+                                    <app-information-language [user]="user"></app-information-language>
+                                    <app-information-skills [user]="user"></app-information-skills>
+                                </p-tabPanel>
+                                <p-tabPanel header="Experiencia" >
+                                    <app-work-experience [user]="user"></app-work-experience>
+                                </p-tabPanel>
+                                <p-tabPanel header="Perfil" >
+                                   <app-information-job-objective [user]="user"></app-information-job-objective>
+                                   <app-information-salary [user]="user"></app-information-salary>
+                                   <app-information-disability [user]="user"></app-information-disability>
+                                </p-tabPanel>
+                            </p-tabView>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

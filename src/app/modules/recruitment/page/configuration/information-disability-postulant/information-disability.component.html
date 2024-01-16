@@ -1,0 +1,46 @@
+<div class="contenedor-salary mt-4">
+    <div class="work">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-center justify-content-md-start title">
+                Discapacidad
+            </div>
+            <div *ngIf="lstInformacion.id == null" class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-center justify-content-md-end">
+                <button  class="button-agregar" (click)="openModalWithComponent({}, true)"  style="cursor: pointer;">
+                    <img style="padding-right: 5px;" src="../../../../../../assets/icons/add.png" alt=""> Tengo alguna discapacidad
+                 </button>
+            </div>
+            <div *ngIf="lstInformacion.id != null" class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-center justify-content-md-end">
+                <a class="px-3" (click)="delete(lstInformacion)"><img src="../../../../../../assets/icons/delete.png" alt=""></a>
+            </div>
+        </div>
+        <hr style="border: 1px solid #12369E;">
+        <div class="row">
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12" *ngIf="lstInformacion.id != null">
+                <span class="filename">{{lstInformacion.certificateFileName}}</span> <a (click)="downLoad()" style="margin-left: 10px;"><img src="../../../../../../assets/icons/descargar.png" alt=""></a>
+            </div>
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-2">
+                <p class="description">{{lstInformacion.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<p-toast></p-toast>
+<p-toast position="bottom-center" key="delete-d" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="flex flex-column" style="flex: 1">
+            <div class="text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="row p-fluid">
+                <div class="col-6">
+                    <button type="button" style="cursor: pointer;" pButton (click)="onConfirm(message.data)" label="Si" class="p-button-success"></button>
+                </div>
+                <div class="col-6">
+                    <button type="button" style="cursor: pointer;" pButton (click)="onReject()" label="No" class="p-button-secondary"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

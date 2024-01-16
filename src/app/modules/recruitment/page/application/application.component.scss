@@ -1,0 +1,198 @@
+.content {
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    padding: 5px 90px 5px 90px;
+    display: flex;
+    gap: 20px;
+    &__filter {
+        width: 25%;
+        &__card {
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            padding: 25px;
+            &__header {
+                display: flex;
+                gap: 10px;
+                h1 {
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 25px;
+                    line-height: 150%;
+                    color: #12369E;
+                }
+            }
+            hr {
+                width: 80%;
+            }
+            &__body {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                &-item {
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                }
+            }
+        }   
+    }
+    &__body {
+        width: 80%;
+        &__order {
+            display: flex;
+            gap: 5px;
+            span {
+                font-style: normal;
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 150%;
+                color: #12369E;
+                margin-right: 20px;
+            }
+            button {
+                font-style: normal;
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 150%;
+                letter-spacing: 0.005em;
+                color: #12369E;
+                border: none;
+                background-color: #ffffff;
+            }
+        }
+        &__card {
+            margin-top: 20px;
+        }
+    }
+}
+
+.my-pagination::ng-deep .page-item.active .page-link {
+    z-index: 1;
+    color: #12369E;
+    background-color:#F6F9FF !important;
+    border: none;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+.my-pagination::ng-deep .page-link {
+    border: none;
+    background-color:#F6F9FF !important;
+    color:#3F3F3F;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+.content__ofert {
+    padding: 5px 90px 5px 90px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    background: #F6F9FF;
+    h1 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 150%;
+        color: #12369E;
+        margin-bottom: 15px;
+        margin-top: 6%;
+    }
+    &__scroll {
+        display: flex;
+        align-items: center;
+        &__content {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            overflow: auto;
+            margin-bottom: 5%;
+        }
+    }
+  
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+  }
+
+@media screen and (max-width: 960px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 30px 5px 30px;
+        &__filter {
+            width: 100%;
+            &__card {
+                &__header {
+                    justify-content: center;
+                }
+                hr {
+                    width: 100%;
+                }
+                &__body {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    gap: 15px;
+                }
+            }
+        }
+        &__body {
+            width: 100%;
+        }
+    }
+    .content__ofert {
+        padding: 5px 30px 5px 30px;
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    .content {
+        &__filter {
+            &__card {
+                &__body {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        }
+    }
+}
+
+
+.btn1 {
+  border-bottom: 2px solid !important;
+  padding-bottom: 7px;
+}
+
+.btn2 {
+    border-bottom: 2px solid !important;
+    padding-bottom: 7px;
+}
+
+
+.active {
+    border-bottom: 7px solid !important;
+}
+
+@media screen and (max-device-width: 480px) { 
+    .content__body__order{
+        display: block !important;
+        button{
+            margin-bottom: 10px !important;
+            margin-top: 10px !important;
+        }
+    }
+}

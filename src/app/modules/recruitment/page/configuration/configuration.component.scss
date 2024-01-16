@@ -1,0 +1,58 @@
+ .p-tabview-nav {
+    display: flex;
+    justify-content: center;
+}
+
+.topfiltercontainer {
+    padding-top: 100px;
+
+    align-items: center;
+
+    text-align: center;
+
+    li {
+        display: inline-block;
+        padding-right: 23px;
+    }
+    button {
+        width: 115px;
+        height: 60px;
+        background: #12369e;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .topfiltersubcontainer {
+        height: 180px;
+        background-color: #ffad06;
+        padding-top: 60px;
+    }
+
+    .primero {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 150%;
+        letter-spacing: 0.005em;
+        color: #3f3f3f;
+        max-width: 300px;
+        text-align: left;
+        vertical-align: middle;
+    }
+    .combo {
+        width: 300px !important;
+        height: 60px;
+        font-weight: 600;
+    }
+
+    
+}
+
+::ng-deep .p-tabview-title {
+    line-height: 1;
+    white-space: nowrap;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+}
+

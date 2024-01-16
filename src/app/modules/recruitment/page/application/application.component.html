@@ -1,0 +1,69 @@
+<ng-container *ngIf="state">
+    <app-header-application [state]="state"></app-header-application>
+</ng-container>
+
+<section class="content">
+    <section class="content__filter">
+        <div class="content__filter__card">
+            <div class="content__filter__card__header">
+                <img src="../../../../../assets/img/filter.svg" alt="" />
+                <h1>Filtros</h1>
+            </div>
+            <hr />
+            <div class="content__filter__card__body">
+                  <div
+                    class="content__filter__card__body-item"
+                    *ngFor="let item of checkFilterList; let i = index;"
+                >
+                    <input class="form-check-input"
+                        (change)="filterCheck($event)"
+                        [name]="item.code"
+                       
+                        id="defaultCheck"
+                        value=""
+                        type="checkbox"
+                    /><label for="defaultCheck54">{{item.description}}</label>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content__body">
+        <div class="content__body__order">
+            <span>Ordernar por :</span>
+            <button [ngClass]="{'active': active}" class="btn1" (click)="OrderApplicant(true)"  style="cursor: pointer;">Fecha de
+                publicación</button>
+            <button [ngClass]="{'active': !active}" class="btn2" (click)="OrderApplicant(false)" style="cursor: pointer;">
+                Fecha de postulación
+            </button>
+        </div>
+        <div class="content__body__card">
+            <app-card-recruitment *ngFor="let item of list" [item]="item" [events]="eventsSubject.asObservable()">
+            </app-card-recruitment>
+            <div class="pagination-area" style="margin-top: 30px">
+                <pagination [boundaryLinks]="showBoundaryLinks" [directionLinks]="showDirectionLinks"
+                    [totalItems]="totalItems" [itemsPerPage]="5" (pageChanged)="pageChanged($event)"
+                    [firstText]="firstText" [lastText]="lastText" [previousText]="prevText" [nextText]="nextText"
+                    class="my-pagination"></pagination>
+                <br />
+            </div>
+        </div>
+    </section>
+</section>
+
+<!-- <section class="content__ofert">
+    <h1>Más ofertas laborales</h1>
+    <div class="content__ofert__scroll">
+        <div style="float: left;margin-right: 5px;">
+            <img src="../../../../../assets/img/left.png" (click)="scrollLeft()" alt="">
+        </div>
+        <div #widgetsContent class="content__ofert__scroll__content">
+            <app-card-more-ofert *ngFor="let itm of jobs" [itm]="itm"></app-card-more-ofert>
+
+        </div>
+        <div style="float: right;margin-left: 5px;">
+            <img src="../../../../../assets/img/rigth.png" (click)="scrollRight()" alt="">
+        </div>
+    </div>
+</section> -->
+
+<app-other-jobs [customtitle]="'Más ofertas laborales'"></app-other-jobs>

@@ -1,0 +1,89 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left title">{{title}}</h4>
+    <span class="indicador-campos">*Campos obligatorios</span>
+    <button type="button" class="btn-close close pull-right" aria-label="Close"  style="cursor: pointer;" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <label for="inputEmail4" class="form-label">Teléfono celular <span class="required">*</span></label>
+                    <input placeholder="Ingrese un teléfono" (keypress)="valideKey($event)" type="text"
+                        class="form-control" formControlName="cellPhone" id="inputEmail4" maxlength="9">
+                    <small *ngIf="form.controls['cellPhone'].hasError('required') && form.controls['cellPhone'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                    <small *ngIf="form.controls['cellPhone'].hasError('minlength') && form.controls['cellPhone'].touched"
+                        style="color: red;">El valor ingresado debe tener una longitud de 9 dígitos </small>
+                    <small *ngIf="form.controls['cellPhone'].hasError('maxlength') && form.controls['cellPhone'].touched"
+                        style="color: red;">El valor ingresado debe tener una longitud de 9 dígitos </small>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <label for="inputEmail4" class="form-label">Otro teléfono </label>
+                    <input placeholder="Ingrese otro teléfono" (keypress)="valideKey($event)" type="text"
+                        class="form-control" formControlName="anotherPhone" id="inputEmail4" maxlength="10">
+                    <!-- <small *ngIf="form.controls['anotherPhone'].hasError('required') && form.controls['anotherPhone'].touched"
+                        style="color: red;">Es un campo obligatorio </small> -->
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Departamento <span class="required">*</span></label>
+                    <select id="inputState" class="form-select" formControlName="iddeparment"
+                        (change)="changeProv($event)">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.nid_department" *ngFor="let item of lstDepartament">{{item.sname}}
+                        </option>
+                    </select>
+                    <small
+                        *ngIf="form.controls['iddeparment'].hasError('required') && form.controls['iddeparment'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Provincia <span class="required">*</span></label>
+                    <select id="inputState" class="form-select" formControlName="idprovince"
+                        (change)="changeDis($event)">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.nid_province" *ngFor="let item of lstProvince">{{item.sname}}</option>
+                    </select>
+                    <small
+                        *ngIf="form.controls['idprovince'].hasError('required') && form.controls['idprovince'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Distrito <span class="required">*</span></label>
+                    <select id="inputState" class="form-select" formControlName="iddistrito">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.nid_district" *ngFor="let item of lstDistrict">{{item.sname}}</option>
+                    </select>
+                    <small
+                        *ngIf="form.controls['iddistrito'].hasError('required') && form.controls['iddistrito'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Dirección <span class="required">*</span></label>
+                    <input placeholder="Ingrese una dirección" type="text" class="form-control"
+                        formControlName="address" id="inputEmail4" maxlength="100">
+                    <small *ngIf="form.controls['address'].hasError('required') && form.controls['address'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Email <span class="required">*</span></label>
+                    <input placeholder="Ingrese un correo" type="text" class="form-control" readonly
+                        formControlName="email" id="inputEmail4" maxlength="100">
+                    <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched"
+                        style="color: red;">Es un campo obligatorio </small>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 mt-3">
+                    <label for="inputEmail4" class="form-label">URL Profesional</label>
+                    <input placeholder="Ingrese URL Profesional" type="text" class="form-control"
+                        formControlName="urlProfesional" id="inputURL">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mt-4 divButtons">
+            <button type="submit" class="button-grabar" [disabled]="form.invalid" style="cursor: pointer;">Guardar</button>
+            <button type="button" class="mx-4 button-cancel" (click)="bsModalRef.hide()" style="cursor: pointer;">{{closeBtnName}}</button>
+        </div>
+    </form>
+</div>

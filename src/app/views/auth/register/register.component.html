@@ -1,0 +1,191 @@
+<!-- Register -->
+<p-toast></p-toast>
+<!-- <app-header-side [showMenu]="false"></app-header-side> -->
+<app-header-side></app-header-side>
+<div class="user-form-area">
+    <div class="container-fluid p-0">
+        <div class="row m-0 align-items-center">
+            <div class="col-lg-6 p-0 col-md-12">
+                <div class="user-register">
+                    <div class="top">
+                        <div class="form-header">
+                            <div class="title mb-3">Crea tu cuenta</div> 
+                        </div>
+
+                        <form [formGroup]="userForm" (ngSubmit)="submit()" class="row">
+                            <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                <label for="">Nombre(s)</label>
+                                <span class="required">*Campo obligatorio</span>
+                                <input type="text" class="form-control mt-2" [formControl]="userForm.controls['firstName']" placeholder="Nombre">
+                                <small
+                                *ngIf="userForm.controls['firstName'].hasError('required') && userForm.controls['firstName'].touched"
+                                style="color: red;">Ingresa tu nombre </small>
+                            </div>
+
+                            <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                <label for="">Apellido Paterno</label>
+                                <span class="required">*Campo obligatorio</span>
+                                <input type="text" class="form-control mt-2" [formControl]="userForm.controls['lastName']" placeholder="Apellido Paterno">
+                                <small
+                                *ngIf="userForm.controls['lastName'].hasError('required') && userForm.controls['lastName'].touched"
+                                style="color: red;">Ingresa tu apellido paterno</small>
+                            </div>
+
+                            <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                              <label for="">Apellido Materno</label>
+                              <span class="required">*Campo obligatorio</span>
+                              <input type="text" class="form-control mt-2" [formControl]="userForm.controls['motherlastname']" placeholder="Apellido Materno">
+                              <small
+                              *ngIf="userForm.controls['motherlastname'].hasError('required') && userForm.controls['motherlastname'].touched"
+                              style="color: red;">Ingresa tu apellido materno</small>
+                          </div>
+
+                            <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                <label for="">Email</label>
+                                <span class="required">*Campo obligatorio</span>
+                                <input type="email" class="form-control mt-2" [formControl]="userForm.controls['email']" placeholder="Correo">
+                                <small
+                                *ngIf="
+                                userForm.controls['email'].hasError('required') &&
+                                userForm.controls['email'].touched
+                                "
+                                style="color: red;"
+                              >
+                                Se requiere el correo.
+                              </small>
+                              <small
+                                *ngIf="
+                                userForm.controls['email'].hasError('email') &&
+                                userForm.controls['email'].touched
+                                "
+                                style="color: red;"
+                              >
+                                Correo inválido.
+                              </small>  
+                            </div>
+
+                            <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                <label for="">Contraseña</label>
+                                <span class="required">*Campo obligatorio</span>
+                                <input type="password" class="form-control mt-2" [formControl]="userForm.controls['passwordWithoutEncryption']" placeholder="Contraseña">
+                                <small
+                                *ngIf="userForm.controls['passwordWithoutEncryption'].hasError('required') && userForm.controls['passwordWithoutEncryption'].touched"
+                                style="color: red;" class="form-error-msg">Ingresa tu contraseña </small>
+                                <small 
+                                  *ngIf="userForm.controls['passwordWithoutEncryption'].hasError('pattern') && userForm.controls['passwordWithoutEncryption'].touched" 
+                                  style="color: red;" class="form-error-msg"> La contraseña debe tener al menos letras minúsculas y mayúsculas, un número y un símbolo</small>
+                                  
+                                  <small 
+                                  *ngIf="userForm.controls['passwordWithoutEncryption'].hasError('minlength') && userForm.controls['passwordWithoutEncryption'].touched" 
+                                  style="color: red;" class="form-error-msg"> La contraseña debe contener un mínimo de  {{userForm.controls['passwordWithoutEncryption'].errors.minlength.requiredLength}} caracteres </small>
+                                  
+                                  <small 
+                                  *ngIf="userForm.controls['passwordWithoutEncryption'].hasError('maxlength') && userForm.controls['passwordWithoutEncryption'].touched" 
+                                  style="color: red;" class="form-error-msg"> La contraseña no puede contener mas de  {{userForm.controls['passwordWithoutEncryption'].errors.maxlength.requiredLength}} caracteres </small>
+                                  
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-lg-12 col-md-12 col-sm-12 text-left" style="font-size: 12px; color: black;">
+                                    Al hacer click en Crear Cuenta, acepto las 
+                                    <strong (click)="openModal(modalCondicionesUso)" style="cursor: pointer;">Condiciones de uso </strong> y 
+                                    <strong (click)="openModal(modalPoliticas)" style="cursor: pointer;">Políticas de privacidad </strong>
+                                </div> 
+                            <br/>
+                                <div class="col-lg-12 col-md-12 col-sm-12 text-left">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault" style="font-size: 12px; color: black;">
+                                         Quiero recibir noticias de nuevas ofertas laborales
+                                        </label>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 5%;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
+                                    <button style="max-width: 200px;background-color: #12369E;cursor: pointer;" type="submit" class="btn" [disabled]="userForm.invalid">Crear Cuenta</button>
+                                </div>
+                              </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                                <a style="text-decoration: none;cursor: pointer;" [routerLink]="['/auth/login']"><span style="color: black;">¿Ya tienes una cuenta?  </span>
+                                   <span class="text-color-orange">Ingresa Aquí</span></a>
+                            </div> 
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0 col-md-12">
+                <div class="user-img">
+                    <img src="assets/img/resgister-bg.jpg" class="img-fluid" alt="User">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+<!-- End Register -->
+
+<ng-template #modalCondicionesUso let-modal>
+    <div class="modal-header">
+        <span class="modal-title">Condiciones de Uso</span>
+        <button type="button" class="close" aria-label="Close" (click)="cerrarModal()" style="border: 0px;cursor: pointer;">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container text-center">
+            <div class="form-horizontal">
+              <br>
+              <div class="form-group" style="height: 250px;">
+                <iframe id="inlineFrameExample" name="inlineFrameExample" width="930px" height="250px" frameborder="0" marginwidth="0" marginheight="0"
+                scrolling="no" style="border:none !important; border-width:1px; margin-bottom:5px; max-width: 100%;"
+                allowfullscreen [src]="rutaHTMLCondiciones"></iframe>
+              </div>
+              <br>
+            </div>
+          </div>
+    </div>
+    <div class="modal-footer">
+        <div class="container">
+          <div class="row mt-2">
+            <div class="col-sm-0 col-md-3"></div>
+            <div class="col-sm-12 col-md-6">
+              <button type="submit" class="btn-modal"  style="cursor: pointer;" (click)="cerrarModal()">Cerrar</button>
+            </div>
+            <div class="col-sm-0 col-md-3"></div>
+          </div>
+        </div>
+      </div>
+</ng-template>
+
+<ng-template #modalPoliticas let-modal>
+    <div class="modal-header">
+        <span class="modal-title">Políticas de Privacidad</span>
+        <button type="button" class="close" aria-label="Close" (click)="cerrarModal()" style="border: 0px;cursor: pointer;">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container text-center">
+            <div class="form-horizontal">
+              <br>
+              <div class="form-group" style="height: 250px;">
+                <iframe id="inlineFrameExample" name="inlineFrameExample" width="900px" height="250px" frameborder="0" marginwidth="0" marginheight="0"
+                scrolling="no" style="border:none !important; border-width:1px; margin-bottom:5px; max-width: 100%;"
+                allowfullscreen [src]="rutaHTMLPoliticas"></iframe>
+              </div>
+              <br>
+            </div>
+          </div>
+    </div>
+    <div class="modal-footer">
+        <div class="container">
+          <div class="row mt-2">
+            <div class="col-sm-0 col-md-3"></div>
+            <div class="col-sm-12 col-md-6">
+                <button type="submit" class="btn-modal" style="cursor: pointer;" (click)="cerrarModal()">Cerrar</button>
+              </div>
+            <div class="col-sm-0 col-md-3"></div>
+          </div>
+        </div>
+      </div>
+</ng-template>

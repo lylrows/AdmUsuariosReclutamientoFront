@@ -1,0 +1,158 @@
+<p-toast></p-toast>
+
+<!-- Job Details -->
+<div class="job-details-header">
+    <span style="margin: auto;text-transform: uppercase;letter-spacing: 0.05em;" class="title-header">{{ textoHeader }}</span>
+</div>
+<div class="job-details-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="imgdetail row align-items-end">
+                    <div class="col-lg-8 col-md-12">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                           <img src="{{currentJob.scompanyimageurl}}" height="70px" alt="Empresa" class="imgcompanyjob">
+                        </div> 
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 left">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 left">
+                            <h2 class="title-job-p"> {{currentJob.stitle}}</h2>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="deta details-item">
+
+                    <div class="details-inner">
+                        <h3>Detalles del aviso:</h3>
+                        <div class="descripcion" [innerHTML]="currentJob.snoticedetails" style="white-space: pre-line; text-align: justify;"></div>
+                    </div>
+                 
+                    <div class="details-inner">
+                        <h3>Requisitos:</h3>
+                        <div class="descripcion" [innerHTML]="currentJob.srequirements" style="white-space: pre-line; text-align: justify;"></div>
+                    </div>
+
+                    <div class="details-inner">
+                        <h3>Beneficios:</h3>
+                        <div class="descripcion" [innerHTML]="currentJob.sbenefits" style="white-space: pre-line; text-align: justify;"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12 d-flex justify-content-center">
+                <div class="card-information">
+                    <div class="information widget-item">
+                        <h3 class="publish-job">
+                            Publicado el {{ currentJob.screationdate }}
+                        </h3>
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <ul class="primeralista">
+                                   <li><i class="pi pi-clock"></i>&nbsp;&nbsp;Full time</li>
+                                   <li><i class="pi pi-home"></i>&nbsp;&nbsp;{{currentJob.slocation}}</li>
+                                   <li><i class="pi pi-map-marker"></i>&nbsp;&nbsp;{{currentJob.smodality}}</li>
+                               </ul>
+                           </div>
+                        </div>
+                        <div class="row pb-3" *ngIf="isLogged==false">
+                            <div class="col-lg-12 col-md-12 col-sm-12 d-flex divcenter" *ngIf="isPostulated == false">
+                                <label class="clsquierespostularte">¿Quieres postularte?</label>
+                            </div>
+                            <br />
+                            <div class="col-lg-12 col-md-12 col-sm-12 d-flex divcenter" style="padding-top: 16px">
+                                <button class="btnIniciaSesion" style="cursor: pointer;" (click)="goLogin()">
+                                    Inicia Sesión
+                                </button>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="col-lg-12 col-md-12 col-sm-12 d-flex divcenter" *ngIf="isPostulated == false"
+                                style="padding-top: 15px; padding-right: 0px">
+                                <label class="clsnotienescuenta">¿No tienes cuenta?</label>
+                                &nbsp;&nbsp;
+                                <a class="clsregistrateaqui" href="#/register">Regístrate Aquí</a>
+                            </div>
+                        </div>
+                        <div class="row pb-3" *ngIf="isPostulated==false && isLogged==true">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 d-flex divcenter" style="padding-top: 16px">
+                                <button class="btnIniciaSesion"  style="cursor: pointer;" (click)="applyjob()">
+                                    Postular
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="row pb-3" *ngIf="isPostulated==true">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 d-flex" style="padding-top: 16px">
+                                <label class="lblpostulado"><img style="margin-right: 10px;" src="../../../../../assets/img/check.svg" alt=""> Ya te postulaste el {{ postulatedDate}}</label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Job Details -->
+
+<!-- Employer -->
+<section class="employer-area mt-5 pb-100" *ngIf="relatedJobs.length > 0">
+    <div class="container">
+        <hr style="border: 2px solid #9AB3DF;">
+        <div class="row align-items-center">
+            <div class="section-title">
+                <h3 class="relatedjobs-1">Puestos Similares</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-lg-6 mix o mb-4"  *ngFor="let job of relatedJobs;">
+                <div class="card-puestos-similares">
+                    <div class="row">
+                       <div class="col-lg-8 col-md-12 col-sm-12">
+                        <p class="datejob">Publicado el {{job.screationdate}}</p>
+                        <h3 style="height: 68px;"><a (click)="navigate(job.id_job)" class="job-title"
+                            title="{{job.stitle}}">{{job.stitle}}</a></h3>
+                        <div class="divlogo">
+                            <img src="{{job.scompanyimageurl}}" width="130px" height="60px" alt="Empresa">
+                        </div>
+                        
+                        
+                        
+                        <ol class="listajobdetail">
+                            <p class="jobsubdetailtext"><i class="pi pi-clock"></i>Full time</p>
+                            <p class="jobsubdetailtext"><i class="pi pi-home"></i> {{ job.slocation}}</p>
+                            <p class="jobsubdetailtext"><i class="pi pi-map-marker"></i> {{ job.smodality}}</p>
+                        </ol>
+                       </div>
+                       <div class="col-lg-4 col-md-12 col-sm-12 pt-2">
+                           <div class="row">    
+                              <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end align-content-center">
+                                
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end mt-3">
+                                <button class="cmn-btn-postular"  (click)="navigate(job.id_job)" style="cursor: pointer;" >Ver Empleo</button>
+                              </div>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Employer -->
+
+
+<app-other-jobs [customtitle]="'Más ofertas laborales'" [idJob]="this.jobidparam"></app-other-jobs>
+
+<app-new-letter *ngIf="isLogged==false" ></app-new-letter>

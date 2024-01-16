@@ -1,0 +1,31 @@
+<!-- Login -->
+<p-toast></p-toast>
+<app-header-side></app-header-side>
+<div class="user-form-area">
+    <div class="container-fluid p-0">
+        <div class="row m-0 align-items-center">
+            <div class="col-lg-6 p-0 col-md-12">
+                <div class="user-content">
+                    <div class="top">
+                        <div class="message">¡Gracias! <br></div>
+                        <div class="description mb-3">Su cuenta ha sido activada correctamente.</div>
+                        
+                        <div style="margin: 0 auto; width: 100%; text-align: center;">
+                            <button type="button" (click)="jwtAuth.signout()" class="btn mt-4 mb-2" 
+                            style="max-width: 300px;background-color: #12369E;display: initial;cursor: pointer;"  >Haz clic aquí para Iniciar Sesión</button>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0 col-md-12">
+                <div class="user-img">
+                    <img class="w-100" style="object-fit: cover;" src="assets/img/resgister-bg.jpg" alt="User">
+                </div>
+            </div>
+          
+            
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+<!-- End Login -->

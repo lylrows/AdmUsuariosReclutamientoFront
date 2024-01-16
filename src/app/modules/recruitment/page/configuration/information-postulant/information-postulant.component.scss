@@ -1,0 +1,250 @@
+.contenedor-informacion {
+    background: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.avatar {
+    border-radius: 100%;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.avatar img {
+    padding: 0px;
+    margin: 0px;
+    border-radius: 100%;
+    width: 104px;
+    height: 104px;
+}
+
+.avatar-icon {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 28px;
+    height: 28px;
+    -moz-box-align: center;
+    align-items: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+}
+
+.avatar-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.name-postulant {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #12369e;
+}
+
+.descripcion {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #3f3f3f;
+}
+
+.information {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #3f3f3f;
+}
+
+.title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #12369e;
+}
+
+.information-contact {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #3f3f3f;
+    line-break: anywhere;
+}
+
+
+
+
+.container {
+    width: 450px;
+    height: 200px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    background: #FFEDC8;
+    border: 1.5px dashed #F8A907;
+    box-sizing: border-box;
+    border-radius: 12px;
+  
+    input {
+      opacity: 0;
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+  
+    label {
+      color: white;
+      width: 183px;
+      height: 44px;
+      border-radius: 21.5px;
+      background-color: #db202f;
+      padding: 8px 16px;
+    }
+  
+    h3 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.005em;
+        color: #3F3F3F;
+    }
+  }
+  
+  .fileover {
+    animation: shake 1s;
+    animation-iteration-count: infinite;
+  }
+  
+  .files-list {
+    margin-top: 1.5rem;
+  
+    .single-file {
+      display: flex;
+      padding: 0.5rem;
+      justify-content: space-between;
+      align-items: center;
+      border: dashed 1px #979797;
+      margin-bottom: 1rem;
+  
+      .delete {
+        display: flex;
+        margin-left: 0.5rem;
+        cursor: pointer;
+        align-self: flex-end;
+      }
+  
+  
+      display: flex;
+      flex-grow: 1;
+  
+      .name {
+        font-size: 14px;
+        font-weight: 500;
+        color: #353f4a;
+        margin: 0;
+      }
+  
+      .size {
+        font-size: 12px;
+        font-weight: 500;
+        color: #a4a4a4;
+        margin: 0;
+        margin-bottom: 0.25rem;
+      }
+  
+      .info {
+        width: 100%
+      }
+    }
+  }
+  
+  /* Shake animation */
+  @keyframes shake {
+    0% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+  
+    10% {
+      transform: translate(-1px, -2px) rotate(-1deg);
+    }
+  
+    20% {
+      transform: translate(-3px, 0px) rotate(1deg);
+    }
+  
+    30% {
+      transform: translate(3px, 2px) rotate(0deg);
+    }
+  
+    40% {
+      transform: translate(1px, -1px) rotate(1deg);
+    }
+  
+    50% {
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+  
+    60% {
+      transform: translate(-3px, 1px) rotate(0deg);
+    }
+  
+    70% {
+      transform: translate(3px, 1px) rotate(-1deg);
+    }
+  
+    80% {
+      transform: translate(-1px, -1px) rotate(1deg);
+    }
+  
+    90% {
+      transform: translate(1px, 2px) rotate(0deg);
+    }
+  
+    100% {
+      transform: translate(1px, -2px) rotate(-1deg);
+    }
+  }
+
+  .text-file {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: #12369e;
+  }
+
+  .icon-url {
+    font-size:23px;
+    color: #12369e;
+  }
+
+@media screen and (max-width:575px) {
+  .divLoadedFile{
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    width: 100%;
+  }
+}

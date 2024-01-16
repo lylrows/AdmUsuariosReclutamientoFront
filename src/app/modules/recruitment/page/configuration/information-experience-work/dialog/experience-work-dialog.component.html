@@ -1,0 +1,164 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left title">{{title}}</h4>
+    <span class="indicador-campos">*Campos obligatorios</span>
+    <button type="button" class="btn-close close pull-right btnexperiencia" aria-label="Close" style="cursor: pointer;" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <label for="inputEmail4" class="form-label">Empresa <span class="required">*</span></label>
+                    <input placeholder="Ingrese el nombre" type="text" class="form-control" formControlName="company" 
+                    id="inputEmail4" autocomplete="off"  maxlength="100" (keypress)="lettersOnly($event)">
+                    <small
+                    *ngIf="form.controls['company'].hasError('required') && form.controls['company'].touched"
+                    style="color: red;">Es un campo obligatorio </small>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12" hidden>
+                    <!-- <label for="inputEmail4" class="form-label">Actividad de la empresa <span class="required">*</span></label> -->
+                    <select id="inputState" class="form-select" [formControl]="form.controls['idActivity']">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.id" *ngFor="let item of lstIndustries">{{item.descriptionValue}}</option>
+                    </select>
+                    <!-- <small
+                    *ngIf="form.controls['idActivity'].hasError('required') && form.controls['idActivity'].touched"
+                    style="color: red;">Es un campo obligatorio </small> -->
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <label for="inputEmail4" class="form-label">Puesto <span class="required">*</span></label>
+                    <input placeholder="Ingrese el nombre" type="text" autocomplete="off" class="form-control" formControlName="stand" id="inputEmail4" maxlength="100" (keypress)="lettersOnly($event)">
+                    <small
+                    *ngIf="form.controls['stand'].hasError('required') && form.controls['stand'].touched"
+                    style="color: red;">Es un campo obligatorio </small>
+                </div>
+
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12 mt-3" hidden>
+                    <!-- <label for="inputEmail4" class="form-label">Nivel de experiencia <span class="required">*</span></label> -->
+                    <select id="inputState" class="form-select" formControlName="idExperienceLevel">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.id" *ngFor="let item of lstNivelExperiencia">{{item.descriptionValue}}</option>
+                    </select>
+                    <!-- <small
+                    *ngIf="form.controls['idExperienceLevel'].hasError('required') && form.controls['idExperienceLevel'].touched"
+                    style="color: red;">Es un campo obligatorio </small> -->
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Área del puesto <span class="required">*</span></label>
+                    <select id="inputState" class="form-select" formControlName="idPositionArea" (change)="changeArea($event)">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.id" *ngFor="let item of lstareapuesto">{{item.descriptionValue}}</option>
+                    </select>
+                    <small
+                    *ngIf="form.controls['idPositionArea'].hasError('required') && form.controls['idPositionArea'].touched"
+                    style="color: red;">Es un campo obligatorio </small>
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Subárea <span class="required">*</span></label>
+                    <input placeholder="Ingrese Subárea" type="text" class="form-control" formControlName="subArea" 
+                    id="inputEmail4" autocomplete="off"  maxlength="100" (keypress)="lettersOnly($event)">
+                    <small
+                    *ngIf="form.controls['subArea'].hasError('required') && form.controls['subArea'].touched"
+                    style="color: red;">Es un campo obligatorio </small>
+
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12 mt-3" hidden>
+                    <!-- <label for="inputEmail4" class="form-label">País <span class="required">*</span></label> -->
+                    <select id="inputState" class="form-select" formControlName="idCountry">
+                        <option hidden [value]="null" selected>Elige una opción</option>
+                        <option [value]="item.id" *ngFor="let item of lstCountry">{{item.description}}</option>
+                    </select>
+                    <!-- <small
+                    *ngIf="form.controls['idCountry'].hasError('required') && form.controls['idCountry'].touched"
+                    style="color: red;">Es un campo obligatorio </small> -->
+                </div>
+                
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Fecha de inicio <span class="required">*</span></label>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <select id="inputState" class="form-select" formControlName="monthStart">
+                                <option value="" selected>Mes</option>
+                                <option [value]="item.description" *ngFor="let item of lstmonthini">{{item.description}}</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 mt-2 mt-sm-0">
+    
+                            <select (change)="changeYearIni($event)" id="inputState" class="form-select" formControlName="yearStart">
+                                <option value="" selected>Año</option>
+                                <option [value]="item.description" *ngFor="let item of lstyearsini">{{item.description}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Fecha de finalización <span class="required">*</span></label>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <select id="inputState" class="form-select" formControlName="monthEnd">
+                                <option value="" selected>Mes</option>
+                                <option [value]="item.description" *ngFor="let item of lstmonthfin">{{item.description}}</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 mt-2 mt-sm-0">
+    
+                            <select (change)="changeYearFin($event)" id="inputState" class="form-select" formControlName="yearEnd">
+                                <option value="" selected>Año</option>
+                                <option [value]="item.description" *ngFor="let item of lstyearsfin">{{item.description}}</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+                            <div class="form-check">
+                                <input (change)="eventChange($event);" class="form-check-input" type="checkbox" id="gridCheck" formControlName="present">
+                                <label class="form-check-label" for="gridCheck">
+                                 Al presente
+                                </label>
+                              </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="col-lg-8 col-md-12 col-sm-12 col-12 mt-3">
+                    <label for="inputEmail4" class="form-label">Breve descripción de responsabilidad (5000 / {{ 5000 - form.get('descriptionResponsabilities').value.length }} ) <span class="required">*</span></label>
+                    <quill-editor [modules]="editorOptions" formControlName="descriptionResponsabilities" placeholder="Escribe cuáles son tus tareas"></quill-editor>
+                    <small
+                    *ngIf="form.controls['descriptionResponsabilities'].hasError('required') && form.controls['descriptionResponsabilities'].touched"
+                    style="color: red;">Es un campo obligatorio </small>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12 mt-3 margin-9">
+                    <label for="inputEmail4" class="form-label">Personas a cargo</label>
+                    <input placeholder="Ingresa un número" type="number" class="form-control" 
+                                formControlName="idPeopleCharge" id="inputEmail4" 
+                                maxlength="3"
+                                autocomplete="off"
+                                onkeypress="return /[0-9, ]/i.test(event.key)">
+ 
+                                <small
+                                *ngIf="form.controls['idPeopleCharge'].hasError('min') && form.controls['idPeopleCharge'].touched"
+                                style="color: red;">Ingrese una cantidad mayor a 0 </small>
+                                
+                    <label for="inputEmail4" class="form-label">Salario Percibido Mensual</label>
+                    <input placeholder="Ingresa un número" type="text" class="form-control" 
+                            formControlName="salary" 
+                            [inputMask]="currencyInputMask"
+                            id="inputEmail4" 
+                            placeholder="S/ 0.00"
+                            maxlength="17"
+                            autocomplete="off"
+                            >
+                             <!-- (keypress)="valideKey($event)"  placeholder="Ingresa un monto"  -->
+                            <!-- <button type="button" class="mx-4 button-cancel" (click)="getFormValidationErrors()">validar</button> -->
+                </div>
+                
+            </div>
+        </div><br><br><br>
+        <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mt-4 divButtons">
+            <button type="submit" class="button-grabar" [disabled]="form.invalid" style="cursor: pointer;">Guardar</button>
+            <button type="button" class="mx-4 button-cancel" (click)="bsModalRef.hide()" style="cursor: pointer;">{{closeBtnName}}</button>
+        </div>
+    </form>
+</div>
